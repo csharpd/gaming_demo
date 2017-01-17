@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8">
     <title>Gaming</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" > -->
     <link rel="stylesheet" href="assets/css/app.css" type="text/css">
+    <script type="text/javascript" src="assets/javascript/jquery.js"></script>
   </head>
   <body>
     <div class="content">
@@ -17,14 +18,14 @@
           <input type="radio" name="selection" value="bingo"> Bingo <br>
         </div>
         <div class="options">
-          <div class="football-bets">
-            <div class="football-bet">
+            <div id="football-bets" class="bets-section">
+            <div id="football-bet">
               <h2> Arsenel vs. Man U</h2>
               <input type="radio" name="bet" value="3"> 15 / 5
               <input type="radio" name="bet" value="1.4"> 7 / 5
               <input type="radio" name="bet" value="1.75"> 7 / 4
             </div>
-            <div class="football-bet">
+            <div class="football-bet" >
               <h2> Liverpool vs. Chelsea</h2>
               <input type="radio" name="bet" value="2.4"> 12 / 5
               <input type="radio" name="bet" value="1.25"> 5 / 4
@@ -37,7 +38,7 @@
               <input type="radio" name="bet" value="1.75"> 7 / 5
             </div>   
           </div>
-          <div class="casino-bets">
+          <div id="casino-bets" class="bets-section">
             <div class="casino-bet">
               <h2> casino 1</h2>
               <input type="radio" name="bet" value="3"> 15 / 5
@@ -57,21 +58,21 @@
               <input type="radio" name="bet" value="1.75"> 7 / 5
             </div>  
           </div>
-          <div class="bingo-bets">
+          <div id="bingo-bets" class="bets-section">
             <div class="bingo-bet">
               <h2> bingo 1</h2>
               <input type="radio" name="bet" value="3"> 15 / 5
               <input type="radio" name="bet" value="1.4"> 7 / 5
               <input type="radio" name="bet" value="1.75"> 7 / 4
             </div>
-            <div class="casino-bet">
-              <h2> casino 2</h2>
+            <div class="bingo-bet">
+              <h2> bingo 2</h2>
               <input type="radio" name="bet" value="2.4"> 12 / 5
               <input type="radio" name="bet" value="1.25"> 5 / 4
               <input type="radio" name="bet" value="1.75"> 7 / 4
             </div> 
-            <div class="casino-bet">
-              <h2> casino 3</h2>
+            <div class="bingo-bet">
+              <h2> bingo 3</h2>
               <input type="radio" name="bet" value="2.6"> 13 / 5
               <input type="radio" name="bet" value="1.4"> 7 / 5
               <input type="radio" name="bet" value="1.75"> 7 / 5
@@ -86,6 +87,16 @@
         </div>
       </form>
     <div>
+
+    <script type="text/javascript">
+     
+        $("input[name='selection']").click(function () {
+          $('#football-bets').css('display', ($(this).val() === 'football') ? 'block' : 'none');
+          $('#casino-bets').css('display', ($(this).val() === 'casino') ? 'block' : 'none');
+          $('#bingo-bets').css('display', ($(this).val() === 'bingo') ? 'block' : 'none');
+        })
+
+    </script>
 
 
 
