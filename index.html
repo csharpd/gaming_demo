@@ -6,11 +6,34 @@
   <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" > -->
     <link rel="stylesheet" href="assets/css/app.css" type="text/css">
     <script type="text/javascript" src="assets/javascript/jquery.js"></script>
+    <script src='https://dd6zx4ibq538k.cloudfront.net/smartserve-3754.js'></script>
+    <script type="text/javascript">
+    
+    function sendQP () {
+       if (window.uv && window.uv.emit) {
+          console.log("have UV");
+          window.uv.emit('egUser',{
+                       "user": {
+                         "id": "32624092",
+                         "username": "jona_46",
+                         "email": "jona_46@hotmail.com",
+                         "language": "en",
+                         "currency": "GBP",
+                         "isGuest": false
+                       }
+                      });
+       }
+     }
+
+    sendQP();
+
+    </script>
+
   </head>
   <body>
     <div class="content">
-      <form method="post">
-        <input type="text" name="user-id" value="user-id" required>
+      <form method="post" action="#" id="betting-form">
+        <input type="text" name="user-id" id="user-id" value="01" required>
         <div class="selection">
           Make a selection <br>
           <input type="radio" name="selection" value="football"> Football <br>
@@ -89,13 +112,20 @@
     <div>
 
     <script type="text/javascript">
-     
         $("input[name='selection']").click(function () {
           $('#football-bets').css('display', ($(this).val() === 'football') ? 'block' : 'none');
           $('#casino-bets').css('display', ($(this).val() === 'casino') ? 'block' : 'none');
           $('#bingo-bets').css('display', ($(this).val() === 'bingo') ? 'block' : 'none');
         })
 
+        $( "form" ).on( "submit", function( event ) {
+          event.preventDefault();
+          
+          var formString = $( this ).serializeArray();
+          console.log(formString);
+          var userId = formString[0]["user-id"];
+          console.log(userId);
+        });
     </script>
 
 
