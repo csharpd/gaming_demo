@@ -7,27 +7,6 @@
     <link rel="stylesheet" href="assets/css/app.css" type="text/css">
     <script type="text/javascript" src="assets/javascript/jquery.js"></script>
     <script src='https://dd6zx4ibq538k.cloudfront.net/smartserve-3754.js'></script>
-    <script type="text/javascript">
-    
-    function sendQP () {
-       if (window.uv && window.uv.emit) {
-          console.log("have UV");
-          window.uv.emit('egUser',{
-                       "user": {
-                         "id": "32624092",
-                         "username": "jona_46",
-                         "email": "jona_46@hotmail.com",
-                         "language": "en",
-                         "currency": "GBP",
-                         "isGuest": false
-                       }
-                      });
-       }
-     }
-
-    sendQP();
-
-    </script>
 
   </head>
   <body>
@@ -121,11 +100,35 @@
         $( "form" ).on( "submit", function( event ) {
           event.preventDefault();
           
-          var formString = $( this ).serializeArray();
-          console.log(formString);
-          var userId = formString[0]["user-id"];
-          console.log(userId);
+          var qubit = $( this ).serializeArray();
+          var user = qubit[0].value;
+          var type = qubit[1].value;
+          var odds = qubit[2].value;
+          var stake = qubit[3].value;
+
+          function sendQP (user, type, odds, stake) {
+             if (window.uv && window.uv.emit) {
+                console.log("have UV");
+                console.log(user);
+                window.uv.emit('egUser',{
+                             "user": {
+                               "id": "32624092",
+                               "username": "jona_46",
+                               "email": "jona_46@hotmail.com",
+                               "language": "en",
+                               "currency": "GBP",
+                               "isGuest": false,
+                               "userid": user,
+                               "type": type,
+                               "odds": odds,
+                               "stake": stake 
+                             }
+                            });
+             }
+           }
+           sendQP(user, type, odds, stake);
         });
+
     </script>
 
 
