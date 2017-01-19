@@ -12,40 +12,79 @@
   <body>
     <div class="content">
       <form method="post" action="#" id="betting-form">
-        <input type="text" name="user-id" id="user-id" value="01" required>
+        
+        User ID: <input type="text" name="user-id" id="user-id" required>
+        
         <div class="selection">
-          Make a selection <br>
-          <input type="radio" name="selection" value="football"> Football <br>
-          <input type="radio" name="selection" value="casino"> Casino <br>
-          <input type="radio" name="selection" value="bingo"> Bingo <br>
+          <label class="game-selection football" for="football">
+            <input class="football" type="radio" name="selection" value="football"> 
+          </label>
+          
+          <label class="game-selection casino" for="casino">
+            <input class="casino" type="radio" name="selection" value="casino"> 
+          </label>
+          
+          <label class="game-selection poker" for="poker">
+            <input class="poker" type="radio" name="selection" value="poker"> 
+          </label>
         </div>
+
         <div class="options">
-            <div id="football-bets" class="bets-section">
-            <div id="football-bet">
-              <h2> Arsenel vs. Man U</h2>
-              <input type="radio" name="bet" value="3"> 15 / 5
-              <input type="radio" name="bet" value="1.4"> 7 / 5
-              <input type="radio" name="bet" value="1.75"> 7 / 4
-            </div>
-            <div class="football-bet" >
-              <h2> Liverpool vs. Chelsea</h2>
-              <input type="radio" name="bet" value="2.4"> 12 / 5
-              <input type="radio" name="bet" value="1.25"> 5 / 4
-              <input type="radio" name="bet" value="1.75"> 7 / 4
-            </div> 
+          <div id="football-bets" class="bets-section">
+            <h2> Arsenal vs. Man U</h2>  
             <div class="football-bet">
-              <h2> Man City vs. West Ham</h2>
-              <input type="radio" name="bet" value="2.6"> 13 / 5
-              <input type="radio" name="bet" value="1.4"> 7 / 5
-              <input type="radio" name="bet" value="1.75"> 7 / 5
+              <table>
+                <tr>
+                  <th>H</th>
+                  <th>D</th>
+                  <th>A</th>
+                </tr>
+                <tr>
+                  <td><input type="radio" class="bet" name="bet" value="3"> 15 / 5</td>
+                  <td><input type="radio" class="bet" name="bet" value="1.4"> 7 / 5</td>
+                  <td><input type="radio" class="bet" name="bet" value="1.75"> 7 / 4</td>
+                </tr>
+              </table>
+            </div>
+
+            <h2> Liverpool vs. Chelsea</h2>
+            <div class="football-bet" >
+              <table>
+                <col width="80">
+                <tr>
+                  <th>H</th>
+                  <th>D</th>
+                  <th>A</th>
+                </tr>
+                <tr>
+                  <td><input type="radio" class="bet" name="bet" value="2.4"> 12 / 5</td>
+                  <td><input type="radio" class="bet" name="bet" value="1.25"> 5 / 4</td>
+                  <td><input type="radio" class="bet" name="bet" value="1.75"> 7 / 4</td>
+                </tr>
+              </table>
+            </div> 
+            <h2> Man City vs. West Ham</h2>
+            <div class="football-bet">
+              <table>
+                <tr>
+                  <th>H</th>
+                  <th>D</th>
+                  <th>A</th>
+                </tr>
+                <tr>
+                  <td><input type="radio" class="bet" name="bet" value="2.6"> 13 / 5</td>
+                  <td><input type="radio" class="bet" name="bet" value="1.4"> 7 / 5</td>
+                  <td><input type="radio" class="bet" name="bet" value="1.75"> 7 / 5</td>
+                </tr>
+              </table>
             </div>   
           </div>
           <div id="casino-bets" class="bets-section">
             <div class="casino-bet">
               <h2> casino 1</h2>
-              <input type="radio" name="bet" value="3"> 15 / 5
-              <input type="radio" name="bet" value="1.4"> 7 / 5
-              <input type="radio" name="bet" value="1.75"> 7 / 4
+              <input type="radio" name="bet" value="3"> H <br > 15 / 5
+              <input type="radio" name="bet" value="1.4"> D <br> 7 / 5
+              <input type="radio" name="bet" value="1.75"> A <br> 7 / 4
             </div>
             <div class="casino-bet">
               <h2> casino 2</h2>
@@ -60,41 +99,45 @@
               <input type="radio" name="bet" value="1.75"> 7 / 5
             </div>  
           </div>
-          <div id="bingo-bets" class="bets-section">
-            <div class="bingo-bet">
-              <h2> bingo 1</h2>
+          <div id="poker-bets" class="bets-section">
+            <div class="poker-bet">
+              <h2> poker 1</h2>
               <input type="radio" name="bet" value="3"> 15 / 5
               <input type="radio" name="bet" value="1.4"> 7 / 5
               <input type="radio" name="bet" value="1.75"> 7 / 4
             </div>
-            <div class="bingo-bet">
-              <h2> bingo 2</h2>
+            <div class="poker-bet">
+              <h2> poker 2</h2>
               <input type="radio" name="bet" value="2.4"> 12 / 5
               <input type="radio" name="bet" value="1.25"> 5 / 4
               <input type="radio" name="bet" value="1.75"> 7 / 4
             </div> 
-            <div class="bingo-bet">
-              <h2> bingo 3</h2>
+            <div class="poker-bet">
+              <h2> poker 3</h2>
               <input type="radio" name="bet" value="2.6"> 13 / 5
               <input type="radio" name="bet" value="1.4"> 7 / 5
               <input type="radio" name="bet" value="1.75"> 7 / 5
             </div>  
           </div>
         </div>
-        <div class="stake"> 
-          Stake<input type="text" name="stake" value="Input amount" required>
-        </div>
-        <div class="submit-form">
-            <input type="submit">
+
+        <div class="stake-section"> 
+          <h3 class="stake">Stake</h3>
+          <div class="stake-details">
+            <input type="text" name="stake" value="£00.00" required>
+            <input type="submit" value="Place Bet">
+          </div>
         </div>
       </form>
     <div>
 
     <script type="text/javascript">
         $("input[name='selection']").click(function () {
+          $('.stake-section').css('display', 'block');
+
           $('#football-bets').css('display', ($(this).val() === 'football') ? 'block' : 'none');
           $('#casino-bets').css('display', ($(this).val() === 'casino') ? 'block' : 'none');
-          $('#bingo-bets').css('display', ($(this).val() === 'bingo') ? 'block' : 'none');
+          $('#poker-bets').css('display', ($(this).val() === 'poker') ? 'block' : 'none');
         })
 
         $( "form" ).on( "submit", function( event ) {
