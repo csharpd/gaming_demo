@@ -1,6 +1,8 @@
 body {
   font-family: arial;
   background-color: black;
+  margin: 0;
+  padding:0;
 }
 
 .content {
@@ -61,8 +63,16 @@ body {
     border-radius: 5px;
     width: 30%;
     margin: 0 auto;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
+nav {
+  height: 20px;
+  background-color: lightgrey;
+  text-align: right;
+  padding: 20px;
+}
 
 
 .football-bet {
