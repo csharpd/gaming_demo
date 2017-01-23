@@ -10,29 +10,27 @@
 
   </head>
   <body>
-    <nav>User ID: <input type="text" name="user-id" id="user-id" required></nav>
+    <nav>User ID: <input type="text" name="user-id" id="user-id" value="jona46" readonly required></nav>
     <div class="content">
       <form method="post" action="#" id="betting-form">
-        
-        
-        
+
         <div class="selection">
           <label class="game-selection football" for="football">
-            <input class="football" type="radio" name="selection" value="football"> 
+            <input class="football" type="radio" name="selection" value="football">
           </label>
-          
+
           <label class="game-selection casino" for="casino">
-            <input class="casino" type="radio" name="selection" value="casino"> 
+            <input class="casino" type="radio" name="selection" value="casino">
           </label>
-          
+
           <label class="game-selection poker" for="poker">
-            <input class="poker" type="radio" name="selection" value="poker"> 
+            <input class="poker" type="radio" name="selection" value="poker">
           </label>
         </div>
 
         <div class="options">
           <div id="football-bets" class="bets-section">
-            <h2> Arsenal vs. Man U</h2>  
+            <h2> Arsenal vs. Man U</h2>
             <div class="football-bet">
               <table>
                 <tr>
@@ -63,7 +61,7 @@
                   <td><input type="radio" class="bet" name="bet" value="1.75"> 7 / 4</td>
                 </tr>
               </table>
-            </div> 
+            </div>
             <h2> Man City vs. West Ham</h2>
             <div class="football-bet">
               <table>
@@ -78,51 +76,11 @@
                   <td><input type="radio" class="bet" name="bet" value="1.75"> 7 / 5</td>
                 </tr>
               </table>
-            </div>   
-          </div>
-          <div id="casino-bets" class="bets-section">
-            <div class="casino-bet">
-              <h2> casino 1</h2>
-              <input type="radio" name="bet" value="3"> H <br > 15 / 5
-              <input type="radio" name="bet" value="1.4"> D <br> 7 / 5
-              <input type="radio" name="bet" value="1.75"> A <br> 7 / 4
             </div>
-            <div class="casino-bet">
-              <h2> casino 2</h2>
-              <input type="radio" name="bet" value="2.4"> 12 / 5
-              <input type="radio" name="bet" value="1.25"> 5 / 4
-              <input type="radio" name="bet" value="1.75"> 7 / 4
-            </div> 
-            <div class="casino-bet">
-              <h2> casino 3</h2>
-              <input type="radio" name="bet" value="2.6"> 13 / 5
-              <input type="radio" name="bet" value="1.4"> 7 / 5
-              <input type="radio" name="bet" value="1.75"> 7 / 5
-            </div>  
-          </div>
-          <div id="poker-bets" class="bets-section">
-            <div class="poker-bet">
-              <h2> poker 1</h2>
-              <input type="radio" name="bet" value="3"> 15 / 5
-              <input type="radio" name="bet" value="1.4"> 7 / 5
-              <input type="radio" name="bet" value="1.75"> 7 / 4
-            </div>
-            <div class="poker-bet">
-              <h2> poker 2</h2>
-              <input type="radio" name="bet" value="2.4"> 12 / 5
-              <input type="radio" name="bet" value="1.25"> 5 / 4
-              <input type="radio" name="bet" value="1.75"> 7 / 4
-            </div> 
-            <div class="poker-bet">
-              <h2> poker 3</h2>
-              <input type="radio" name="bet" value="2.6"> 13 / 5
-              <input type="radio" name="bet" value="1.4"> 7 / 5
-              <input type="radio" name="bet" value="1.75"> 7 / 5
-            </div>  
           </div>
         </div>
 
-        <div class="stake-section"> 
+        <div class="stake-section">
           <h3 class="stake">Stake</h3>
           <div class="stake-details">
             <input type="text" name="stake" value="£00.00" required>
@@ -133,51 +91,86 @@
     <div>
 
     <script type="text/javascript">
-        $("input[name='selection']").click(function () {
-          $('.stake-section').css('display', 'block');
 
-          $('#football-bets').css('display', ($(this).val() === 'football') ? 'block' : 'none');
-          $('#casino-bets').css('display', ($(this).val() === 'casino') ? 'block' : 'none');
-          $('#poker-bets').css('display', ($(this).val() === 'poker') ? 'block' : 'none');
-        })
+
+    var betSport = ''
+    var betCompetition = 'Premier League'
+    var betEvent = ''
+    var betSelection = ''
+    var betOddDecimal = 0
+    var betPotential = 0
+    var betStake = 0
+    var betIdApp = ''
+    var userId = 'jona46'
+
+    window.onload = sendQPUser(userId);
+
+    $("input[name='selection']").click(function () {
+        $('.stake-section').css('display', 'block');
+        $('#football-bets').css('display', ($(this).val() === 'football') ? 'block' : 'none');
+    })
 
         $( "form" ).on( "submit", function( event ) {
-          event.preventDefault();
-          
           var qubit = $( this ).serializeArray();
-          var user = qubit[0].value;
-          var type = qubit[1].value;
-          var odds = qubit[2].value;
-          var stake = qubit[3].value;
+          betSport = qubit[1].value;
+          betOddDecimal = qubit[2].value;
+          betStake = qubit[3].value;
 
-          function sendQP (user, type, odds, stake) {
-             if (window.uv && window.uv.emit) {
-                console.log("have UV");
-                console.log(user);
-                window.uv.emit('egUser',{
-                             "user": {
-                               "id": "32624092",
-                               "username": "jona_46",
-                               "email": "jona_46@hotmail.com",
-                               "language": "en",
-                               "currency": "GBP",
-                               "isGuest": false,
-                               "userid": user,
-                               "type": type,
-                               "odds": odds,
-                               "stake": stake 
-                             }
-                            });
-             }
-           }
-           sendQP(user, type, odds, stake);
+
         });
+
+        function sendQPUser (user) {
+           if (window.uv && window.uv.emit) {
+              console.log("have UV");
+              console.log(user);
+              window.uv.emit('egUser',{
+                          "user": {
+                            "lastName": "Ramirez",
+                            "gender": "Male",
+                            "hasTransacted": true,
+                            "loyalty": {
+                              "id": "8989752-223",
+                              "tier": "silver",
+                              "membershipType": "Clearsky Rewards"
+                            },
+                            "firstSession": false,
+                            "isGuest": false,
+                            "currency": "GBP",
+                            "address": {
+                              "addressee": "Jonatan Ramirez",
+                              "company": "Amce Inc",
+                              "lines": [
+                                "Flat 12",
+                                "123 High Street"
+                              ],
+                              "locality": "London",
+                              "region": "London",
+                              "postalCode": "SE6 2AA",
+                              "country": "United Kingdom",
+                              "countryCode": "GB"
+                            },
+                            "username": userId,
+                            "phoneNumber": "07595222465",
+                            "title": "Mr",
+                            "language": "en-us",
+                            "id": userId,
+                            "firstName": "Jonatan",
+                            "countryCallingCode": 44,
+                            "balance": {
+                              "value": 200,
+                              "currency": "GBP"
+                            },
+                            "email": "jonatan@qubit.com"
+                          }
+                        });
+           }
+         }
 
     </script>
 
 
 
 
-  		
+
   </body>
 </html>
