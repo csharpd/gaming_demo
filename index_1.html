@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Gaming</title>
+  <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" > -->
+    <link rel="stylesheet" href="assets/css/app.css" type="text/css">
+    <script type="text/javascript" src="assets/javascript/jquery.js"></script>
+    <script src='https://dd6zx4ibq538k.cloudfront.net/smartserve-3754.js'></script>
+    <link href="SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
+
+  </head>
+  <body>
+    <nav>
+
+      <div class="login"><input type="text" name="loginuserid" id="loginuserid" value="" required>
+      <button type="button" value="login" id="login" onclick="">Login</button>
+    </div>
+      <div class="user-id">User ID: <input type="text" name="user-id" id="user-id" value="" required>
+        <button type="button" value="logout" id="logout" onclick="">Logout</button></div>
+    </nav>
+    <div class="content">
+      <form method="post" id="betting-form">
+
+        <div class="selection">
+          <ul>
+          <li>
+            <label class="game-selection football" for="football">
+            <input class="football" id="Football" type="radio" name="selection" value="Football">
+          </label>
+          </li>
+          <li>
+          <label class="game-selection casino" for="casino">
+            <input class="casino" type="radio" name="selection" value="casino">
+          </label>
+          </li>
+          <li>
+          <label class="game-selection poker" for="poker">
+            <input class="poker" type="radio" name="selection" value="poker">
+          </label>
+          </li>
+        </ul>
+        </div>
+
+        <div class="stake-section">
+          <h3 class="stake">Stake</h3>
+          <div class="stake-details">
+            <input type="text" id="stake" name="stake" value=0 required>
+            <button type="button" id="place" value="Place Bet" onclick="sendegBetSlipItem_egBetslipSummary_egBetslipTransactionSummary()">Place Bet!</button>
+          </div>
+        </div>
+
+        <div class="options">
+          <div id="football-bets" class="bets-section">
+            <h2> Arsenal vs. Man U</h2>
+            <div class="football-bet">
+              <table>
+                <tr>
+                  <th>H</th>
+                  <th>D</th>
+                  <th>A</th>
+                </tr>
+                <tr>
+                  <td><input type="radio" class="bet" name="bet" value=3 id='a_v_mu_h_15/5' onclick="sendQPegBet()"> 15 / 5</td>
+                  <td><input type="radio" class="bet" name="bet" value=1.4 id='a_v_mu_d_7/5' onclick="sendQPegBet()"> 7 / 5</td>
+                  <td><input type="radio" class="bet" name="bet" value=1.75 id='a_v_mu_a_7/5' onclick="sendQPegBet()"> 7 / 4</td>
+                </tr>
+              </table>
+            </div>
+
+            <h2> Liverpool vs. Chelsea</h2>
+            <div class="football-bet" >
+              <table>
+                <col width="80">
+                <tr>
+                  <th>H</th>
+                  <th>D</th>
+                  <th>A</th>
+                </tr>
+                <tr>
+                  <td><input type="radio" class="bet" name="bet" value=2.4 id='l_v_c_h_12/5' onclick="sendQPegBet()"> 12 / 5</td>
+                  <td><input type="radio" class="bet" name="bet" value=1.25 id='l_v_c_d_5/4' onclick="sendQPegBet()"> 5 / 4</td>
+                  <td><input type="radio" class="bet" name="bet" value=1.75 id='l_v_c_a_7/4' onclick="sendQPegBet()"> 7 / 4</td>
+                </tr>
+              </table>
+            </div>
+            <h2> Man City vs. West Ham</h2>
+            <div class="football-bet">
+              <table>
+                <tr>
+                  <th>H</th>
+                  <th>D</th>
+                  <th>A</th>
+                </tr>
+                <tr>
+                  <td><input type="radio" class="bet" name="bet" value=2.6 id='mc_v_wh_h_13/5' onclick="sendQPegBet()"> 13 / 5</td>
+                  <td><input type="radio" class="bet" name="bet" value=1.4 id='mc_v_wh_d_7/5' onclick="sendQPegBet()"> 7 / 5</td>
+                  <td><input type="radio" class="bet" name="bet" value=1.75 id='mc_v_wh_a_7/5' onclick="sendQPegBet()"> 7 / 5</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+
+
+      </form>
+
+      <div class="betslip-section" id = "betslip">
+        <script type="text/javascript">
+        $('#sportSB').val($('input[name=selection]:checked').val())
+          /*$('#competition').val(betCompetition)
+          betA['betStakeB'] = parseFloat($('#stake').val())
+          betA['betOddDecimalB'] = parseFloat($('input[name=bet]:checked', '#football-bets').val())
+          betA['betPotentialB'] = Math.round(((betOddDecimal * betStake) + betStake)*100)/100
+          betA['selectionIdRB'] = $('input[name=bet]:checked').attr('id')
+          betA['betArrayB'] = getValues (selectionIdR)
+          betA['betEvent'] = betArray['betEvent']
+          betA['betEventId'] = betArray['betEventId']
+          betA['betSelection'] = betArray['betSelection']
+
+          <label for="sport">Sport:</label>
+          <input type="text" name="sport" id="sportBS" value="" readonly>
+          <label for="competition">Competition:</label>
+          <input type="text" name="competition" id="competition" value="competition" readonly>
+          <label for="event">Event:</label>
+          <input type="text" name="event" id="event" value="arrayB['betEvent']" readonly>
+          <label for="selection">Selection:</label>
+          <input type="text" name="selection" id="selection" value="arrayB['betSelection']" readonly>
+          <label for="odd">Odd:</label>
+          <input type="text" name="odd" id="odd" value="arrayB['betOddDecimalB']" readonly>
+          <label for="stake">Total Stake:</label>
+          <input type="text" name="stake" id="stake" value="arrayB['betStakeB']" readonly>
+          <label for="potentialReturn">Total Potential Return:</label>
+          <input type="text" name="potentialReturn" id="potentialReturn" value="arrayB['betPotentialB']" readonly>*/
+        </script>
+        <h3 class="betslip">Betslip</h3>
+        <div class="betslip-details">
+
+
+          <button type="button" value="home" onclick="document.location.reload(true)">Place another Bet</button>
+        </div>
+      </div>
+
+    <div>
+
+    <script type="text/javascript">
+
+    var betArray = []
+    var betSport = ''
+    var betCompetition = 'Premier League'
+    betArray['betEvent'] = ''
+    betArray['betEventId'] = ''
+    betArray['betSelection'] = ''
+    var betOddDecimal = 0
+    var betPotential = 0
+    var betStake = 0
+    var betIdApp = ''
+    var userId = $('#user-id').val()
+    window.console.log(userId);
+
+    var timestamp = Math.round(+new Date()/1000)
+    var selectionIdR = ''
+
+    window.onload = sendQPUser(userId);
+
+    $("#login").click(function () {
+        $('.user-id').css('display', 'block');
+    })
+
+    $("#place").click(function () {
+        $('#betslip').css('display', 'block');
+    })
+
+    $("input[name='selection']").click(function () {
+        $('.stake-section').css('display', 'block');
+        $('#football-bets').css('display', ($(this).val() === 'Football') ? 'block' : 'none');
+    })
+
+    function login(){
+      $('#user-id').val($('#loginuserid').val());
+      $('.login').hide()
+    }
+
+        /*$( "form" ).on( "submit" function( event ) {
+          var qubit = $( this ).serializeArray();
+          betSport = qubit[1].value;
+          betOddDecimal = qubit[2].value;
+          betStake = qubit[3].value;
+
+
+
+
+        },sendegBetSlipItem_egBetslipSummary_egBetslipTransactionSummary());*/
+
+
+        function sendQPUser (user) {
+
+          /*if (window.uv && window.uv.emit) {
+             console.log("have UV");
+             console.log(user);
+             window.uv.emit('egFund',{
+               "user": {
+                 "lastName": "Ramirez",
+                 "gender": "Male",
+                 "hasTransacted": true,
+                 "loyalty": {
+                   "id": "8989752-223",
+                   "tier": "silver",
+                   "membershipType": "Clearsky Rewards"
+                 },
+                 "firstSession": false,
+                 "isGuest": false,
+                 "currency": "GBP",
+                 "address": {
+                   "addressee": "Jonatan Ramirez",
+                   "company": "Amce Inc",
+                   "lines": [
+                     "Flat 12",
+                     "123 High Street"
+                   ],
+                   "locality": "London",
+                   "region": "London",
+                   "postalCode": "SE6 2AA",
+                   "country": "United Kingdom",
+                   "countryCode": "GB"
+                 },
+                 "username": userId,
+                 "phoneNumber": "07595222465",
+                 "title": "Mr",
+                 "language": "en-us",
+                 "id": userId,
+                 "firstName": "Jonatan",
+                 "balance": {
+                   "value": 200,
+                   "currency": "GBP"
+                 },
+                 "email": "jonatan@qubit.com"
+               },
+            "type": "deposit",
+            "amount": {
+              "value": 200,
+              "currency": "GBP"
+            },
+            "method": "CreditCard"
+            })
+        }*/
+
+           if (window.uv && window.uv.emit) {
+              console.log("have UV");
+              console.log(user);
+              window.uv.emit('egUser',{
+                          "user": {
+                            "lastName": "Ramirez",
+                            "gender": "Male",
+                            "hasTransacted": true,
+                            "loyalty": {
+                              "id": "8989752-223",
+                              "tier": "silver",
+                              "membershipType": "Clearsky Rewards"
+                            },
+                            "firstSession": false,
+                            "isGuest": false,
+                            "currency": "GBP",
+                            "address": {
+                              "addressee": "Jonatan Ramirez",
+                              "company": "Amce Inc",
+                              "lines": [
+                                "Flat 12",
+                                "123 High Street"
+                              ],
+                              "locality": "London",
+                              "region": "London",
+                              "postalCode": "SE6 2AA",
+                              "country": "United Kingdom",
+                              "countryCode": "GB"
+                            },
+                            "username": userId,
+                            "phoneNumber": "07595222465",
+                            "title": "Mr",
+                            "language": "en-us",
+                            "id": userId,
+                            "firstName": "Jonatan",
+                            "balance": {
+                              "value": 200,
+                              "currency": "GBP"
+                            },
+                            "email": "jonatan@qubit.com"
+                          }
+                        })
+           }
+         }
+
+         function sendQPegBet () {
+
+           betSport = $('input[name=selection]:checked').val()
+           betStake = parseFloat($('#stake').val())
+           betOddDecimal = parseFloat($('input[name=bet]:checked', '#football-bets').val())
+           betPotential = Math.round(((betOddDecimal * betStake) + betStake)*100)/100
+           selectionIdR = $('input[name=bet]:checked').attr('id')
+           var betArrayB = getValues (selectionIdR)
+           var betEvent = betArray['betEvent']
+           var betEventId = betArray['betEventId']
+           var betSelection = betArray['betSelection']
+
+
+            if (window.uv && window.uv.emit) {
+               console.log("have UV");
+               console.log(userId);
+               window.uv.emit('egBet',{
+                  "bet": {
+                    "betId": betEventId + betStake.toString() + betPotential.toString() + timestamp,
+                    "price": {
+                      "value": betStake,
+                      "currency": "GBP"
+                    },
+                    "potentialReturn": {
+                      "value": betPotential,
+                      "currency": "GBP"
+                    },
+                    "odds": betOddDecimal,
+                    "startTime": timestamp,
+                    "multiBet": true,
+                    "receiptId": "123",
+                    "betType": "Single",
+                    "inplay": true,
+                    "sport": betSport,
+                    "competition": betCompetition,
+                    "eventName": betEvent,
+                    "eventId": betEventId,
+                    "selection": betSelection,
+                    "selectionId": betSelection,
+                    "marketName": "Win-Draw-Win",
+                    "marketId": "12345",
+                    "originalPrice": {
+                      "value": betPotential,
+                      "currency": "GBP"
+                    }
+                  },
+                  "eventType": "detail",
+                  "action": "Click"
+                });
+            }
+            if (window.uv && window.uv.emit) {
+               console.log("have UV");
+               console.log(userId);
+               window.uv.emit('egBetAction',{
+                  "bet": {
+                    "betId": betEventId + betStake.toString() + betPotential.toString() + timestamp,
+                    "price": {
+                      "value": betStake,
+                      "currency": "GBP"
+                    },
+                    "potentialReturn": {
+                      "value": betPotential,
+                      "currency": "GBP"
+                    },
+                    "odds": betOddDecimal,
+                    "startTime": timestamp,
+                    "multiBet": false,
+                    "receiptId": betEventId + betStake.toString() + betPotential.toString() + timestamp,
+                    "betType": "Single",
+                    "inplay": true,
+                    "sport": betSport,
+                    "competition": betCompetition,
+                    "eventName": betEventId,
+                    "eventId": betEventId,
+                    "selection": betSelection,
+                    "selectionId": betSelection,
+                    "marketName": "Win-Draw-Win",
+                    "marketId": "12345",
+                    "originalPrice": {
+                      "value": betPotential,
+                      "currency": "GBP"
+                    }
+                  },
+                  "eventType": "detail",
+                  "action": "Click"
+                });
+            }
+
+          }
+
+          function sendegBetSlipItem_egBetslipSummary_egBetslipTransactionSummary () {
+
+            betSport = $('input[name=selection]:checked').val()
+            betStake = parseFloat($('#stake').val())
+            betOddDecimal = parseFloat($('input[name=bet]:checked', '#football-bets').val())
+            betPotential = Math.round(((betOddDecimal * betStake) + betStake)*100)/100
+            selectionIdR = $('input[name=bet]:checked').attr('id')
+            var betArrayB = getValues (selectionIdR)
+            var betEvent = betArray['betEvent']
+            var betEventId = betArray['betEventId']
+            var betSelection = betArray['betSelection']
+            var betIdApp = betEventId + betStake.toString() + betPotential.toString() + timestamp
+
+
+             if (window.uv && window.uv.emit) {
+                console.log("have UV");
+                console.log(userId);
+                window.uv.emit('egBetslipItem',{
+                  "betslip": {
+                      "id": betIdApp,
+                      "totalStake": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "quantity": 1,
+                      "totalPotential": {
+                          "value": betPotential,
+                          "currency": "GBP"
+                      },
+                      "subtotal": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "tax": {
+                        "value": 0,
+                        "currency": "GBP"
+                      },
+                      "total": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "subtotalIncludingTax": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      }
+                  },
+                   "bet": {
+                       "betId": betIdApp,
+                       "price": {
+                           "value": betStake,
+                           "currency": "GBP"
+                       },
+                       "potentialReturn": {
+                           "value": betPotential,
+                           "currency": "GBP"
+                       },
+                       "odds": betOddDecimal,
+                       "startTime": timestamp,
+                       "multiBet": false,
+                       "receiptId": betIdApp,
+                       "betType": "Single",
+                       "inplay": true,
+                       "sport": betSport,
+                       "competition": betCompetition,
+                       "eventName": betEvent,
+                       "eventId": betEventId,
+                       "selection": betSelection,
+                       "selectionId": betSelection,
+                       "marketName": "Win-Draw-Win",
+                       "marketId": "12345",
+                       "originalPrice": {
+                           "value": betPotential,
+                           "currency": "GBP"
+                       }
+                   },
+                   "subtotal": {
+                       "value": betPotential,
+                       "currency": "GBP"
+                   },
+                   "subtotalIncludingTax": {
+                       "value": betPotential,
+                       "currency": "GBP"
+                   }
+                 });
+             }
+             if (window.uv && window.uv.emit) {
+                console.log("have UV");
+                console.log(userId);
+                window.uv.emit('egBetslipSummary',{
+                  "betslip": {
+                      "id": betIdApp,
+                      "totalStake": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "quantity": 1,
+                      "totalPotential": {
+                          "value": betPotential,
+                          "currency": "GBP"
+                      },
+                      "subtotal": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "total": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "subtotalIncludingTax": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      }
+                  }
+              });
+            }
+            if (window.uv && window.uv.emit) {
+               console.log("have UV");
+               console.log(userId);
+               window.uv.emit('egBetslipTransactionSummary',{
+                  "basket": {
+                      "id": betIdApp,
+                      "totalStake": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "quantity": 1,
+                      "totalPotential": {
+                          "value": betPotential,
+                          "currency": "GBP"
+                      },
+                      "subtotal": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "total": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "subtotalIncludingTax": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      }
+                  },
+                  "betslip": {
+                      "id": betIdApp,
+                      "totalStake": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "quantity": 1,
+                      "totalPotential": {
+                          "value": betPotential,
+                          "currency": "GBP"
+                      },
+                      "subtotal": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "total": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "subtotalIncludingTax": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      }
+                  },
+                  "transaction": {
+                      "id": betIdApp,
+                      "firstTransaction": false,
+                      "paymentType": "Credit Card",
+                      "billingAddress": {
+                          "addressee": "Jonatan Ramirez",
+                          "company": "Amce Inc",
+                          "lines": [
+                          "Flat 12",
+                          "123 High Street"
+                        ],
+                          "locality": "London",
+                          "region": "London",
+                          "postalCode": "SE6 2AA",
+                          "country": "United Kingdom",
+                          "countryCode": "GB"
+                      },
+                      "parentId": betIdApp
+                  }
+              });
+            }
+
+            if (window.uv && window.uv.emit) {
+               console.log("have UV");
+               console.log(userId);
+               window.uv.emit('egBetslipItemTransaction',{
+                  "bet": {
+                      "betId": betIdApp,
+                      "price": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "potentialReturn": {
+                          "value": betPotential,
+                          "currency": "GBP"
+                      },
+                      "odds": betOddDecimal,
+                      "startTime": timestamp,
+                      "multiBet": true,
+                      "receiptId": betIdApp,
+                      "betType": "Single",
+                      "inplay": true,
+                      "sport": betSport,
+                      "competition": betCompetition,
+                      "eventName": betEvent,
+                      "eventId": betEventId,
+                      "selection": betSelection,
+                      "selectionId": betSelection,
+                      "marketName": "Win-Draw-Win",
+                      "marketId": "12345",
+                      "originalPrice": {
+                          "value": betPotential,
+                          "currency": "GBP"
+                      }
+                  },
+                  "subtotal": {
+                      "value": betPotential,
+                      "currency": "GBP"
+                  },
+                  "subtotalIncludingTax": {
+                      "value": betPotential,
+                      "currency": "GBP"
+                  },
+                  "betslip": {
+                      "id": betIdApp,
+                      "totalStake": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "quantity": 1,
+                      "totalPotential": {
+                          "value": betPotential,
+                          "currency": "GBP"
+                      },
+                      "subtotal": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "total": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      },
+                      "subtotalIncludingTax": {
+                          "value": betStake,
+                          "currency": "GBP"
+                      }
+                  },
+                  "transaction": {
+                      "id": betIdApp,
+                      "firstTransaction": false,
+                      "paymentType": "Credit Card",
+                      "billingAddress": {
+                          "addressee": "Jonatan Ramirez",
+                          "company": "Amce Inc",
+                          "lines": [
+                              "Flat 12",
+                              "123 High Street"
+                          ],
+                          "locality": "London",
+                          "region": "London",
+                          "postalCode": "SE6 2AA",
+                          "country": "United Kingdom",
+                          "countryCode": "GB"
+                      },
+                      "parentId": betIdApp
+                  }
+                });
+            }
+        }
+
+
+
+
+function getValues (selectionIdR) {
+if (selectionIdR != null){
+  switch(selectionIdR) {
+       case 'a_v_mu_h_15/5':
+         betArray['betEvent'] = 'Arsenal v Man United'
+         betArray['betSelection'] = 'Arsenal'
+         betArray['betEventId'] = '1'
+         break;
+       case 'a_v_mu_d_7/5':
+         betArray['betEvent'] = 'Arsenal v Man United'
+         betArray['betSelection'] = 'Draw'
+         betArray['betEventId'] = '1'
+         break;
+       case 'a_v_mu_a_7/5':
+         betArray['betEvent'] = 'Arsenal v Man United'
+         betArray['betSelection'] = 'Man United'
+         betArray['betEventId'] = '1'
+         break;
+       case 'l_v_c_h_12/5':
+         betArray['betEvent'] = 'Liverpool v Chelsea'
+         betArray['betSelection'] = 'Liverpool'
+         betArray['betEventId'] = '2'
+         break;
+       case 'l_v_c_d_5/4':
+         betArray['betEvent'] = 'Liverpool v Chelsea'
+         betArray['betSelection'] = 'Draw'
+         betArray['betEventId'] = '2'
+         break;
+       case 'l_v_c_a_7/4':
+         betArray['betEvent'] = 'Liverpool v Chelsea'
+         betArray['betSelection'] = 'Chelsea'
+         betArray['betEventId'] = '2'
+         break;
+       case 'mc_v_wh_h_13/5':
+         betArray['betEvent'] = 'Man City v West Ham'
+         betArray['betSelection'] = 'Man City'
+         betArray['betEventId'] = '3'
+         break;
+       case 'mc_v_wh_d_7/5':
+         betArray['betEvent'] = 'Man City v West Ham'
+         betArray['betSelection'] = 'Draw'
+         betArray['betEventId'] = '3'
+         break;
+       case 'mc_v_wh_a_7/5':
+         betArray['betEvent'] = 'Man City v West Ham'
+         betArray['betSelection'] = 'West Ham'
+         betArray['betEventId'] = '3'
+         break;
+       default:
+
+ }
+ return betArray
+}
+}
+
+
+    </script>
+  </body>
+</html>
