@@ -8,6 +8,7 @@
 <script type="text/javascript" src="assets/javascript/jquery.js"></script>
 <script src='https://dd6zx4ibq538k.cloudfront.net/smartserve-3754.js'></script>
 <link href="SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Muli:300,400,600" rel="stylesheet">
 <!--[if lte IE 7]>
 <style>
 .content { margin-right: -1px; } /* this 1px negative margin can be placed on any of the columns in this layout with the same corrective effect. */
@@ -17,7 +18,7 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
 <script src="SpryAssets/SpryMenuBar.js" type="text/javascript"></script>
 </head>
 
-<body>
+<body onload="refreshPage()">
 
 <div class="container">
   <div class="header">
@@ -27,37 +28,41 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
 		<h1>E-Gaming</h1>
 		</div>
 		<div class="loginUser">
-			<nav>
-
 				<div class="login"><input  type="text" name="loginuserid" id="loginuserid" value="" required>
 				<button type="button" value="login" id="login" onclick="login()">Login</button>
 			</div>
-				<div class="user-id">User ID: <input class="loginuser" type="text" name="user-id" id="user-id" value="" readonly required>
-					<p>Funds: <input class="loginuser" type="text" name="userFunds" id="userFunds" value=200 readonly required></p>
-					<button type="button" value="logout" id="logout" onclick="document.location.reload(true)">Logout</button></div>
-			</nav>
+				<div class="user-id">
+          <table>
+            <tr><td width="150">User ID:</td><td><input type="text" name="user-id" id="user-id" value="" readonly required></td></tr>
+					  <tr><td>Balance:</td><td><input type="text" name="userFunds" id="userFunds" value=0 readonly required></td></tr>
+            <tr><td>Add Funds:</td><td><input type="text" name="addFunds" id="addFunds" value=0></td>
+            <td><button type="button" value="addFundsB" id="addFundsB" onclick="addFunds()">Add Funds</button></td></tr>
+
+            <tr><td></td><td><button type="button" value="logout" id="logout" onclick="logout()">Logout</button></td></tr>
+          </table>
+        </div>
 		</div>
 	</div>
-
-
-
 
 <!-- end .header --></div>
   <div class="sidebar1">
     <ul class="nav">
-      <li><a id="football" href="#">Football</a></li>
-      <li><a id="tennis" href="#">Tennis</a></li>
-      <li><a id="americanFootball" href="#">American football</a></li>
-      <li><a id="Horses" href="#">Horses</a>    <!-- end .sidebar1 --></li>
+      <li id="tennis"><a href="#">Tennis</a></li>
+      <li id="golf"><a href="#">Golf</a></li>
+      <li id="football" ><a href="#">Football</a></li>
+      <li id="cricket"><a href="#">Cricket</a></li>
+      <li id="baseball"><a href="#">Baseball</a></li>
+      <li id="horses"><a href="#">Horses</a></li>
     </ul>
-  </div>
+
+   <!-- end .sidebar1 --></div>
   <div class="content">
-		<div class="menuTop">
-	  <ul id="MenuBar1" class="MenuBarHorizontal">
-	      <li><a href="#">Sports</a></li>
-	      <li><a href="#">Casino</a></li>
-	      <li><a href="#">Bingo</a></li>
-	      <li><a href="#">Slots</a></li>
+    <div class="topmenu">
+		<ul id="MenuBar1" class="MenuBarHorizontal">
+        <li id="casino"><a href="#">Casino</a></li>
+        <li id="sports"><a href="#">Sports</a></li>
+	      <li id="bingo"><a href="#">Bingo</a></li>
+	      <li id="slots"><a href="#">Slots</a></li>
 	    </ul>
 	  </div>
 		<form method="post" id="betting-form">
@@ -125,7 +130,7 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
 			<div class="stake-details">
 				<label for="stake">Stake</label>
 				<input type="text" id="stake" name="stake" value=0 required>
-				<button type="button" id="place" value="Place Bet" onclick="sendegBetSlipItem_egBetslipSummary_egBetslipTransactionSummary()">Place Bet!</button>
+				<button type="button" id="place" value="Place Bet" onclick="place()">Place Bet!</button>
 				<p><label for="potential">Potential</label>
 				<input type="text" id="potential" name="stake" value=0 required readonly></p>
 
@@ -162,116 +167,127 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
   <!-- end .container --></div>
 <script type="text/javascript">
 var MenuBar1 = new Spry.Widget.MenuBar("MenuBar1", {imgDown:"SpryAssets/SpryMenuBarDownHover.gif", imgRight:"SpryAssets/SpryMenuBarRightHover.gif"});
-
-
 var betArray = []
 var betSport = ''
 var betCompetition = 'Premier League'
-betArray['betEvent'] = ''
-betArray['betEventId'] = ''
-betArray['betSelection'] = ''
 var betOddDecimal = 0
 var betPotential = 0
 var betStake = 0
 var betIdApp = ''
-var userId = ''
+var userId
 var egUser = {}
 var egBet = {}
 var egBetslipItem = {}
-window.universal_variable = {egUser}
-window.console.log(userId);
-
 var timestamp = Math.round(+new Date()/1000)
 var selectionIdR = ''
+betArray['betEvent'] = ''
+betArray['betEventId'] = ''
+betArray['betSelection'] = ''
+window.universal_variable = {egUser}
 
-$("#login").click(function () {
-		userId = $('#user-id').val()
-		$('.user-id').css('display', 'block');
-		sendQPUser(userId);
-})
 
-$("#place").click(function () {
-		$('#betslip').css('display', 'block');
-})
-
-$("#football").click(function () {
-		$('#football-bets').css('display', 'block');
-		$('.stake-section').css('display', 'block');
-})
-
-$("input[name='selection']").click(function () {
-		$('.stake-section').css('display', 'block');
-		$('#football-bets').css('display', ($(this).val() === 'Football') ? 'block' : 'none');
-})
-
-function login(){
-	$('#user-id').val($('#loginuserid').val());
-	$('.login').hide()
+if (localStorage.getItem("funds")){
+  funds = parseFloat(localStorage.getItem("funds"))
+}
+else {
+  var funds = 0
+  localStorage.setItem("funds", 0)
+}
+if (localStorage.getItem("balance")){
+  balance = parseFloat(localStorage.getItem("balance"))
+}
+else {
+  var balance = 0
+  localStorage.setItem("balance", 0)
+}
+function addFunds(){
+  funds = $('#addFunds').val()
+  localStorage.setItem("funds", parseFloat(funds))
+  localStorage.setItem("fundsDeposit", true)
+  sendQPFunds(funds, userId);
+  document.location.reload(true)
+}
+function place(){
+  $('#betslip').css('display', 'block');
+  balance = parseFloat($('#userFunds').val())
+  localStorage.setItem("balance", balance)
+  sendegBetSlipItem_egBetslipSummary_egBetslipTransactionSummary()
 }
 
-		/*$( "form" ).on( "submit" function( event ) {
-			var qubit = $( this ).serializeArray();
-			betSport = qubit[1].value;
-			betOddDecimal = qubit[2].value;
-			betStake = qubit[3].value;
-
-
-
-
-		},sendegBetSlipItem_egBetslipSummary_egBetslipTransactionSummary());*/
-
-
-		function sendQPUser (user) {
-
-			/*if (window.uv && window.uv.emit) {
-				 console.log("have UV");
-				 console.log(user);
-				 window.uv.emit('egFund',{
-					 "user": {
-						 "lastName": "Ramirez",
-						 "gender": "Male",
-						 "hasTransacted": true,
-						 "loyalty": {
-							 "id": "8989752-223",
-							 "tier": "silver",
-							 "membershipType": "Clearsky Rewards"
-						 },
-						 "firstSession": false,
-						 "isGuest": false,
-						 "currency": "GBP",
-						 "address": {
-							 "addressee": "Jonatan Ramirez",
-							 "company": "Amce Inc",
-							 "lines": [
-								 "Flat 12",
-								 "123 High Street"
-							 ],
-							 "locality": "London",
-							 "region": "London",
-							 "postalCode": "SE6 2AA",
-							 "country": "United Kingdom",
-							 "countryCode": "GB"
-						 },
-						 "username": userId,
-						 "phoneNumber": "07595222465",
-						 "title": "Mr",
-						 "language": "en-us",
-						 "id": userId,
-						 "firstName": "Jonatan",
-						 "balance": {
-							 "value": 200,
-							 "currency": "GBP"
-						 },
-						 "email": "jonatan@qubit.com"
-					 },
-				"type": "deposit",
-				"amount": {
-					"value": 200,
-					"currency": "GBP"
-				},
-				"method": "CreditCard"
-				})
-		}*/
+function logout(){
+  localStorage.clear()
+  document.location.reload(true)
+}
+function refreshPage(){
+  if (localStorage.getItem("userId")){
+    userId = localStorage.getItem("userId")
+    window.logged_in = true
+    if(localStorage.getItem("fundsDeposit")){
+      window.fundsDeposit = true
+    }
+    $('#userFunds').val(localStorage.getItem("balance"))
+    $('#user-id').val(localStorage.getItem("userId"));
+    $('.login').hide()
+    $('.user-id').css('display', 'block')
+    sendQPUser(userId)
+  }
+}
+function login(){
+  userId = $('#loginuserid').val()
+    $('#user-id').val(userId);
+    localStorage.setItem("userId", userId)
+    window.logged_in = true
+    localStorage.setItem("logged_in", true)
+    document.location.reload(true)
+}
+function sendQPUser (user) {
+      if (window.uv && window.uv.emit) {
+        window.uv.emit('egFund',{
+          "user": {
+            "lastName": "Ramirez",
+            "gender": "Male",
+            "hasTransacted": true,
+            "loyalty": {
+              "id": "8989752-223",
+              "tier": "silver",
+              "membershipType": "Clearsky Rewards"
+            },
+            "firstSession": false,
+            "isGuest": false,
+            "currency": "GBP",
+            "address": {
+              "addressee": "Jonatan Ramirez",
+              "company": "Amce Inc",
+              "lines": [
+                "Flat 12",
+                "123 High Street"
+              ],
+              "locality": "London",
+              "region": "London",
+              "postalCode": "SE6 2AA",
+              "country": "United Kingdom",
+              "countryCode": "GB"
+            },
+            "username": userId,
+            "phoneNumber": "07595222465",
+            "title": "Mr",
+            "language": "en-us",
+            "id": userId,
+            "firstName": "Jonatan",
+            "balance": {
+              "value": balance,
+              "currency": "GBP"
+            },
+            "email": "jonatan@qubit.com"
+          },
+       "type": "deposit",
+       "amount": {
+         "value": funds,
+         "currency": "GBP"
+       },
+       "method": "CreditCard"
+       })
+   }
 egUser = {
 						"user": {
 							"lastName": "Ramirez",
@@ -305,25 +321,82 @@ egUser = {
 							"id": userId,
 							"firstName": "Jonatan",
 							"balance": {
-								"value": 200,
+								"value": balance,
 								"currency": "GBP"
 							},
 							"email": "jonatan@qubit.com",
 							"firstLogin": false,
-  						"type": "Logging in on desktop."
+  						"type": "registration",
+              "name": "registration"
 						}
 					}
 			 if (window.uv && window.uv.emit) {
-					console.log("have UV");
-					console.log(user);
 					window.uv.emit('egUser',egUser)
 			 }
 			 if (window.uv && window.uv.emit) {
-					console.log("have UV");
-					console.log(user);
+					window.uv.emit('egUserSignup',egUser)
+			 }
+			 if (window.uv && window.uv.emit) {
 					window.uv.emit('egUserLogin',egUser)
 			 }
+
 		 }
+
+     function sendQPFunds (funds,user) {
+       funds = parseFloat(funds)
+       localStorage.setItem("funds", funds)
+       balance += funds
+       localStorage.setItem("balance", balance)
+
+       if (window.uv && window.uv.emit) {
+ 				 window.uv.emit('egFund',{
+ 					 "user": {
+ 						 "lastName": "Ramirez",
+ 						 "gender": "Male",
+ 						 "hasTransacted": true,
+ 						 "loyalty": {
+ 							 "id": "8989752-223",
+ 							 "tier": "silver",
+ 							 "membershipType": "Clearsky Rewards"
+ 						 },
+ 						 "firstSession": false,
+ 						 "isGuest": false,
+ 						 "currency": "GBP",
+ 						 "address": {
+ 							 "addressee": "Jonatan Ramirez",
+ 							 "company": "Amce Inc",
+ 							 "lines": [
+ 								 "Flat 12",
+ 								 "123 High Street"
+ 							 ],
+ 							 "locality": "London",
+ 							 "region": "London",
+ 							 "postalCode": "SE6 2AA",
+ 							 "country": "United Kingdom",
+ 							 "countryCode": "GB"
+ 						 },
+ 						 "username": userId,
+ 						 "phoneNumber": "07595222465",
+ 						 "title": "Mr",
+ 						 "language": "en-us",
+ 						 "id": userId,
+ 						 "firstName": "Jonatan",
+ 						 "balance": {
+ 							 "value": balance,
+ 							 "currency": "GBP"
+ 						 },
+ 						 "email": "jonatan@qubit.com"
+ 					 },
+ 				"type": "deposit",
+ 				"amount": {
+ 					"value": funds,
+ 					"currency": "GBP"
+ 				},
+ 				"method": "CreditCard"
+ 				})
+ 		}
+
+     }
 
 		 function sendQPegBet () {
 
@@ -351,10 +424,10 @@ egUser = {
 						},
 						"odds": betOddDecimal,
 						"startTime": timestamp,
-						"multiBet": true,
+						"multiBet": false,
 						"receiptId": "123",
 						"betType": "Single",
-						"inplay": true,
+						"inplay": false,
 						"sport": betSport,
 						"competition": betCompetition,
 						"eventName": betEvent,
@@ -373,13 +446,9 @@ egUser = {
 				}
 
 				if (window.uv && window.uv.emit) {
-					 console.log("have UV");
-					 console.log(userId);
 					 window.uv.emit('egBet',egBet);
 				}
 				if (window.uv && window.uv.emit) {
-					 console.log("have UV");
-					 console.log(userId);
 					 window.uv.emit('egBetAction',egBet);
 				}
 
@@ -405,7 +474,11 @@ egUser = {
 				$('#BSpotentialReturn').val(betPotential)
 				$('#BSselection').val(betSelection)
 				$('#BSstake').val(betStake)
-				$('#userFunds').val(parseFloat($('#userFunds').val())-betStake)
+        balance = parseFloat($('#userFunds').val())-betStake
+        localStorage.setItem("balance", balance)
+				$('#userFunds').val(balance)
+
+
 
 				egBetslipItem = {
 					"betslip": {
@@ -451,7 +524,7 @@ egUser = {
 							 "multiBet": false,
 							 "receiptId": betIdApp,
 							 "betType": "Single",
-							 "inplay": true,
+							 "inplay": false,
 							 "sport": betSport,
 							 "competition": betCompetition,
 							 "eventName": betEvent,
@@ -476,13 +549,9 @@ egUser = {
 				 }
 
 				 if (window.uv && window.uv.emit) {
-						console.log("have UV");
-						console.log(userId);
 						window.uv.emit('egBetslipItem', egBetslipItem);
 				 }
 				 if (window.uv && window.uv.emit) {
-						console.log("have UV");
-						console.log(userId);
 						window.uv.emit('egBetslipSummary',{
 							"betslip": {
 									"id": betIdApp,
@@ -511,8 +580,6 @@ egUser = {
 					});
 				}
 				if (window.uv && window.uv.emit) {
-					 console.log("have UV");
-					 console.log(userId);
 					 window.uv.emit('egBetslipTransactionSummary',{
 							"basket": {
 									"id": betIdApp,
@@ -585,8 +652,6 @@ egUser = {
 				}
 
 				if (window.uv && window.uv.emit) {
-					 console.log("have UV");
-					 console.log(userId);
 					 window.uv.emit('egBetslipItemTransaction',{
 							"bet": {
 									"betId": betIdApp,
@@ -600,10 +665,10 @@ egUser = {
 									},
 									"odds": betOddDecimal,
 									"startTime": timestamp,
-									"multiBet": true,
+									"multiBet": false,
 									"receiptId": betIdApp,
 									"betType": "Single",
-									"inplay": true,
+									"inplay": false,
 									"sport": betSport,
 									"competition": betCompetition,
 									"eventName": betEvent,
@@ -671,9 +736,6 @@ egUser = {
 						});
 				}
 		}
-
-
-
 
 function getValues (selectionIdR) {
 if (selectionIdR != null){

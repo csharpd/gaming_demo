@@ -54,17 +54,27 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
   font-size: 25px;
   color: #484848;
   width: 170px;
-  padding-left: 15px; 
+  padding-left: 15px;
 }
 .logo {
   width: 170px;
   float: left;
   padding: 15px 0 0 15px;
 }
+.login {
+  float: right;
+  margin-right: 10px;
+}
 .loginUser {
-  width: 80%;
+  width: 300px;
   height: 115px;
-  float: left;
+  float: right;
+  margin-top: 10px;
+}
+.loginUser td{
+  text-align: left;
+  background-color: #ffffff;
+  font-size: 14px;
 }
 
 /* ~~ These are the columns for the layout. ~~
@@ -189,7 +199,7 @@ ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background
   margin: 10px auto;
   background-color: #ffffff;
   border-radius: 6px;
-  min-height: 400px;
+  min-height: 600px;
 }
 
 nav {
@@ -204,6 +214,11 @@ nav {
   /*justify-content: space-around;*/
 /*  background-color: sky-blue;*/
 }
+
+.football-bet table{
+  margin: 0 auto;
+}
+
 #football-bets h3{
   margin: 10px 0 10px 10px;
   padding: 0px;
