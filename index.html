@@ -6,6 +6,7 @@
 <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" > -->
 <link rel="stylesheet" href="assets/css/app.css" type="text/css">
 <script type="text/javascript" src="assets/javascript/jquery.js"></script>
+<script src='SpryAssets/SpryMenuBar.js'></script>
 <script src='https://dd6zx4ibq538k.cloudfront.net/smartserve-3754.js'></script>
 <link href="SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600" rel="stylesheet">
@@ -24,25 +25,32 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
   <div class="header">
 		<div class="headerTop">
 		<div id="Insert_logo">
-		<img class="logo" src="http://www.qubit.com/sites/all/themes/qubit/logo.png" alt="Insert Logo Here" name="Insert_logo" height="50"  />
-		<h1>E-Gaming</h1>
+		<img class="logo" src="assets/css/images/QubitEgamingLogo.png" alt="Insert Logo Here" name="Insert_logo" />
 		</div>
+    <div class="category"><p>Sports</p></div>
 		<div class="loginUser">
 				<div class="login"><input  type="text" name="loginuserid" id="loginuserid" value="" required>
 				<button type="button" value="login" id="login" onclick="login()">Login</button>
 			</div>
 				<div class="user-id">
           <table>
-            <tr><td width="150">User ID:</td><td><input type="text" name="user-id" id="user-id" value="" readonly required></td></tr>
-					  <tr><td>Balance:</td><td><input type="text" name="userFunds" id="userFunds" value=0 readonly required></td></tr>
-            <tr><td>Add Funds:</td><td><input type="text" name="addFunds" id="addFunds" value=0></td>
-            <td><button type="button" value="addFundsB" id="addFundsB" onclick="addFunds()">Add Funds</button></td></tr>
+            <tr><th width="150">User ID:</th><td width="190"><input type="text" name="user-id" id="user-id" value="" readonly required></td></tr>
+					  <tr><th>Balance:</th><td>£ <input type="text" name="userFunds" id="userFunds" value=0 readonly required></td></tr>
+            <tr><th>Add Funds:</th><td><input type="text" name="addFunds" id="addFunds" value=0><button type="button" value="addFundsB" id="addFundsB" onclick="addFunds()">Add Funds</button></td></tr>
 
             <tr><td></td><td><button type="button" value="logout" id="logout" onclick="logout()">Logout</button></td></tr>
           </table>
         </div>
 		</div>
 	</div>
+  <div class="topmenu">
+  <ul id="MenuBar1" class="MenuBarHorizontal">
+      <li id="casino"><a href="#">Casino</a></li>
+      <li id="sports"><a href="#">Sports</a></li>
+      <li id="bingo"><a href="#">Bingo</a></li>
+      <li id="slots"><a href="#">Slots</a></li>
+    </ul>
+  </div>
 
 <!-- end .header --></div>
   <div class="sidebar1">
@@ -57,20 +65,14 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
 
    <!-- end .sidebar1 --></div>
   <div class="content">
-    <div class="topmenu">
-		<ul id="MenuBar1" class="MenuBarHorizontal">
-        <li id="casino"><a href="#">Casino</a></li>
-        <li id="sports"><a href="#">Sports</a></li>
-	      <li id="bingo"><a href="#">Bingo</a></li>
-	      <li id="slots"><a href="#">Slots</a></li>
-	    </ul>
-	  </div>
 		<form method="post" id="betting-form">
 
 
 			<div class="options">
 				<div id="football-bets" class="bets-section">
-					<p><h2> Football</h2></p>
+				<h2 style="
+    text-align: center;
+"> Football</h2>
 					<h3> Arsenal vs. Man U</h3>
 					<div class="football-bet">
 						<table>
@@ -128,34 +130,30 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
 		<div class="stake-section">
 
 			<div class="stake-details">
-				<label for="stake">Stake</label>
+				<h2>Stake</h2>
 				<input type="text" id="stake" name="stake" value=0 required>
-				<button type="button" id="place" value="Place Bet" onclick="place()">Place Bet!</button>
-				<p><label for="potential">Potential</label>
+				<button type="button" id="place" value="Place Bet" onclick="place()">Place Bet</button>
+				<h2>Potential</h2>
 				<input type="text" id="potential" name="stake" value=0 required readonly></p>
 
 			</div>
 		</div>
 
 		<div class="betslip-section" id = "betslip">
-			<h3 class="betslip">Betslip</h3>
+			<h2>Betslip</h2>
 			<div class="betslip-details" >
-				<table style="width:100%">
-				<tr>
-					<td><label for="competition">Competition:</label></td>
-					<td><input type="text" name="competition" id="BScompetition" value="" readonly></td>
-				</tr>
-				<tr><td><label for="event">Event:</label></td>
-				<td><input type="text" name="event" id="BSevent" value="" readonly></td></tr>
-				<tr><td><label for="selection">Selection:</label></td>
-				<td><input type="text" name="selection" id="BSselection" value="" readonly></td></tr>
-				<tr><td><label for="odd">Odd:</label></td>
-				<td><input type="text" name="odd" id="BSodd" value="" readonly></td></tr>
-				<tr><td><label for="stake">Total Stake:</label></td>
-				<td><input type="text" name="stake" id="BSstake" value="" readonly></td></tr>
-				<tr><td><label for="potentialReturn">Total Potential Return:</label></td>
-				<td><input type="text" name="potentialReturn" id="BSpotentialReturn" value="" readonly></td></tr>
-			</table>
+				<p>Competition:</p>
+				<input type="text" name="competition" id="BScompetition" value="" readonly>
+				<p>Event:</p>
+				<input type="text" name="event" id="BSevent" value="" readonly>
+				<p>Selection:</p>
+				<input type="text" name="selection" id="BSselection" value="" readonly>
+				<p>Odd:</p>
+				<input type="text" name="odd" id="BSodd" value="" readonly>
+				<p>Total Stake:</p>
+				<input type="text" name="stake" id="BSstake" value="" readonly>
+				<p>Total Potential Return:</p>
+				<input type="text" name="potentialReturn" id="BSpotentialReturn" value="" readonly>
 				<button type="button" value="home" onclick="document.location.reload(true)">Place another Bet</button>
 			</div>
 		</div>
