@@ -1,0 +1,764 @@
+<div id="firstStep">
+
+                        <div class="RegistrationHeader">
+                            <h1 id="registrationHeaderText" class="RegistrationHeaderText">Open an Account</h1>
+                        </div>
+
+                        <div class="RegistrationHeaderBorder"></div>
+
+
+                        <div id="PersonalDetailsPanel" identification="AboutUsPart" class="ActiveRegistrationPart">
+                            <div class="RegistrationSubHeader">
+                                <h2>Personal Details</h2>
+                            </div>
+                            <div class="RegistrationPartContainer">
+                                <!-- Beginning of the personal details user control -->
+
+                                <div id="NamePart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <table style="margin-left:-2px;margin-bottom:-2px;">
+                                                <tbody>
+                                                    <tr id="trNameDescription">
+		<td>
+                                                            Title
+                                                        </td>
+		<td>
+                                                            First Name
+                                                        </td>
+		<td>
+                                                            Last Name
+                                                        </td>
+	</tr>
+
+                                                    <tr height="28">
+                                                        <td>
+                                                            <select name="drpTitle" id="drpTitle" class="lowlightElement"  style="width:87px;">
+		<option value="1">Mr</option>
+		<option value="2">Mrs</option>
+		<option value="3">Ms</option>
+
+	</select>
+
+                                                        </td>
+                                                        <td>
+                                                            <input name="txtFirstname" type="text" maxlength="126" id="txtFirstname" class="highlightedElement" >
+
+                                                        </td>
+                                                        <td>
+                                                            <input name="txtLastname" type="text" maxlength="126" id="txtLastname" class="lowlightElement" >
+
+		                                                </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                     FocusTitle();
+                                    </script>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            <div id="RegistrationName">
+                                                Name:
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                 <div id="DateOfBirthPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+
+                                            <table id="tblDateOfBirthEditable" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td>
+
+                                                    </td>
+			<td>
+                                                        <select name="dateOfBirth:drpDays" id="dateOfBirth_drpDays" class="lowlightElement" >
+				<option value="0">Day</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16">16</option>
+				<option value="17">17</option>
+				<option value="18">18</option>
+				<option value="19">19</option>
+				<option value="20">20</option>
+				<option value="21">21</option>
+				<option value="22">22</option>
+				<option value="23">23</option>
+				<option value="24">24</option>
+				<option value="25">25</option>
+				<option value="26">26</option>
+				<option value="27">27</option>
+				<option value="28">28</option>
+				<option value="29">29</option>
+				<option value="30">30</option>
+				<option value="31">31</option>
+
+			</select>
+<select name="dateOfBirth:drpMonths" id="dateOfBirth_drpMonths" class="lowlightElement" >
+				<option value="0">Month</option>
+				<option value="1">January</option>
+				<option value="2">February</option>
+				<option value="3">March</option>
+				<option value="4">April</option>
+				<option value="5">May</option>
+				<option value="6">June</option>
+				<option value="7">July</option>
+				<option value="8">August</option>
+				<option value="9">September</option>
+				<option value="10">October</option>
+				<option value="11">November</option>
+				<option value="12">December</option>
+
+			</select>
+<select name="dateOfBirth:drpYears" id="dateOfBirth_drpYears" class="lowlightElement" >
+				<option value="0">Year</option>
+				<option value="1999">1999</option>
+				<option value="1998">1998</option>
+				<option value="1997">1997</option>
+				<option value="1996">1996</option>
+				<option value="1995">1995</option>
+				<option value="1994">1994</option>
+				<option value="1993">1993</option>
+				<option value="1992">1992</option>
+				<option value="1991">1991</option>
+				<option value="1990">1990</option>
+				<option value="1989">1989</option>
+				<option value="1988">1988</option>
+				<option value="1987">1987</option>
+				<option value="1986">1986</option>
+				<option value="1985">1985</option>
+				<option value="1984">1984</option>
+				<option value="1983">1983</option>
+				<option value="1982">1982</option>
+				<option value="1981">1981</option>
+				<option value="1980">1980</option>
+				<option value="1979">1979</option>
+				<option value="1978">1978</option>
+				<option value="1977">1977</option>
+				<option value="1976">1976</option>
+				<option value="1975">1975</option>
+				<option value="1974">1974</option>
+				<option value="1973">1973</option>
+				<option value="1972">1972</option>
+				<option value="1971">1971</option>
+				<option value="1970">1970</option>
+				<option value="1969">1969</option>
+				<option value="1968">1968</option>
+				<option value="1967">1967</option>
+				<option value="1966">1966</option>
+				<option value="1965">1965</option>
+				<option value="1964">1964</option>
+				<option value="1963">1963</option>
+				<option value="1962">1962</option>
+				<option value="1961">1961</option>
+				<option value="1960">1960</option>
+				<option value="1959">1959</option>
+				<option value="1958">1958</option>
+				<option value="1957">1957</option>
+				<option value="1956">1956</option>
+				<option value="1955">1955</option>
+				<option value="1954">1954</option>
+				<option value="1953">1953</option>
+				<option value="1952">1952</option>
+				<option value="1951">1951</option>
+				<option value="1950">1950</option>
+				<option value="1949">1949</option>
+				<option value="1948">1948</option>
+				<option value="1947">1947</option>
+				<option value="1946">1946</option>
+				<option value="1945">1945</option>
+				<option value="1944">1944</option>
+				<option value="1943">1943</option>
+				<option value="1942">1942</option>
+				<option value="1941">1941</option>
+				<option value="1940">1940</option>
+				<option value="1939">1939</option>
+				<option value="1938">1938</option>
+				<option value="1937">1937</option>
+				<option value="1936">1936</option>
+				<option value="1935">1935</option>
+				<option value="1934">1934</option>
+				<option value="1933">1933</option>
+				<option value="1932">1932</option>
+				<option value="1931">1931</option>
+				<option value="1930">1930</option>
+				<option value="1929">1929</option>
+				<option value="1928">1928</option>
+				<option value="1927">1927</option>
+				<option value="1926">1926</option>
+				<option value="1925">1925</option>
+				<option value="1924">1924</option>
+				<option value="1923">1923</option>
+				<option value="1922">1922</option>
+				<option value="1921">1921</option>
+				<option value="1920">1920</option>
+				<option value="1919">1919</option>
+				<option value="1918">1918</option>
+				<option value="1917">1917</option>
+				<option value="1916">1916</option>
+				<option value="1915">1915</option>
+				<option value="1914">1914</option>
+				<option value="1913">1913</option>
+				<option value="1912">1912</option>
+				<option value="1911">1911</option>
+				<option value="1910">1910</option>
+				<option value="1909">1909</option>
+				<option value="1908">1908</option>
+
+			</select>
+
+                                                    </td>
+
+		</tr>
+	</tbody></table>
+
+        		                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            <div id="DateOfBirthText">
+                                                Date of Birth:
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="DateOfBirthMustBeOver18">
+
+                                    <div id="DateOfBirth2Part" class="LinePart">
+                                        <div class="RegistrationRightColumn">
+                                            <div class="RegistrationRightColumnContainer">
+                                                <table cellpadding="0" cellspacing="0">
+                                                    <tbody><tr>
+                                                        <td>
+                                                        <div id="eighteenPlusImage" title="You must be over 18 to register">&nbsp;</div>
+                                                        </td>
+                                                        <td><span style="color:#333333;padding-left:5px;">You must be over 18 to register</span>
+                                                        </td>
+                                                    </tr>
+                                                </tbody></table>
+        		                            </div>
+                                        </div>
+                                    </div>
+
+	</div>
+
+                                <div id="ContactNumberPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer" style="position:relative;">
+                                            <select name="drpMobileCode" id="drpMobileCode" class="lowlightElement" style="width:87px;">
+		<option value="0">--</option>
+		<option value="+353">+353 - ie</option>
+		<option selected="selected" value="+44">+44 - uk</option>
+		<option value="+1-246">+1-246 - bb</option>
+		<option value="+???">+??? - bv</option>
+		<option value="+1-345">+1-345 - ky</option>
+		<option value="+233">+233 - gh</option>
+		<option value="+350">+350 - gi</option>
+		<option value="+353">+353 - ie</option>
+		<option value="+44 1624">+44 1624 - im</option>
+		<option value="+44 1534">+44 1534 - je</option>
+		<option value="+961">+961 - lb</option>
+		<option value="+356">+356 - mt</option>
+		<option value="+230">+230 - mu</option>
+		<option value="+599">+599 - an</option>
+		<option value="+64">+64 - nz</option>
+		<option value="+248">+248 - sc</option>
+		<option value="+46">+46 - se</option>
+		<option value="+255">+255 - tz</option>
+		<option value="+1-868">+1-868 - tt</option>
+		<option value="+44">+44 - uk</option>
+		<option value="+???">+??? - vg</option>
+
+	</select>
+                                            <img src="/1.37/BrokerDirectory/Global/Images/en//i_help.gif" alt="Help" border="0" style="position:relative;top:2px;cursor:pointer;" >
+                                            <div id="divMobileCodesContainer" style="display:none;">
+                                                <div id="divMobileCodesContainerHeader"><input type="button" value="Close" ></div>
+                                                <div style="height:25px">&nbsp;</div>
+
+                                            </div>
+		                                    <input name="txtMobile" type="text" maxlength="244" id="txtMobile" class="lowlightElement">
+		                                    <select name="drpPhoneType" id="drpPhoneType" class="lowlightElement" >
+		<option value="mobile">Mobile</option>
+		<option value="home">Home</option>
+
+	</select>
+		                                    </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            Contact Number:
+                                        </div>
+                                    </div>
+                                </div>
+
+                                 <div id="EmailAddressPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer" style="position:relative;">
+                                            <input name="txtEmailAddress" type="text" maxlength="255" id="txtEmailAddress" class="lowlightElement" style="width:178px;-moz-user-select: none;-o-user-select:none;user-select:none;">
+
+        		                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            Email Address:
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div id="ConfirmEmailAddressPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+	                                        <input name="txtEmailAddress2" type="text" maxlength="255" id="txtEmailAddress2" class="lowlightElement" style="width:178px;">
+        		                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            Confirm Email Address:
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="RegistrationEndPartContainer"></div>
+                                <!-- End of personal details user control -->
+                            </div>
+                        </div>
+
+                        <div id="AddressConfirmationPanel" class="InactiveRegistrationPart" identification="registrationPart">
+                            <div class="RegistrationSubHeader">
+                                <h2>Address Details</h2>
+                            </div>
+                            <div class="RegistrationPartContainer">
+                                 <!-- Beginning of the address confirmation part -->
+
+                                <div id="CountryPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <select name="drpCountry" id="drpCountry" class="lowlightElement" >
+		<option value="0">Please select a country</option>
+		<option value="ie">Ireland</option>
+		<option selected="selected" value="uk">United Kingdom</option>
+		<option value="bb">Barbados</option>
+		<option value="bv">Bouvet Island</option>
+		<option value="ky">Cayman Islands</option>
+		<option value="gh">Ghana</option>
+		<option value="gi">Gibraltar</option>
+		<option value="ie">Ireland</option>
+		<option value="im">Isle of Man </option>
+		<option value="je">Jersey</option>
+		<option value="lb">Lebanon</option>
+		<option value="mt">Malta</option>
+		<option value="mu">Mauritius</option>
+		<option value="an">Netherlands Antilles</option>
+		<option value="nz">New Zealand</option>
+		<option value="sc">Seychelles</option>
+		<option value="se">Sweden</option>
+		<option value="tz">Tanzania</option>
+		<option value="tt">Trinidad &amp; Tobago</option>
+		<option value="uk">United Kingdom</option>
+		<option value="vg">Virgin Islands (British)</option>
+
+	</select>
+</div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            Country:
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="CountryNotAllowedToBetFromHomePart" class="LinePart" style="display:none">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <span style="padding-left:0;" id="CountryNotAllowedToBetFromHomePartText" initialtext="Users are advised that they are not permitted to engage in online wagering while in {0}. However residents of {0} can have an account and deposit money for use when outside the territory. Betdaq therefore reserve the right to confirm location when user is wagering on the site."></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="trVerificationRow1" style="display: none">
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            House Name/Number:
+                                        </div>
+                                    </div>
+                                </div>
+
+				                <div id="trVerificationActions" style="display: none">
+		                            <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <input name="hdnAddressId" type="hidden" id="hdnAddressId" maxlength="200" onfocus="focusedElement(this);" onblur="blurElement(this);">
+			                                <input type="submit" name="verificateButton" value="Look Up" onclick="VerifyUserAddress(event, true);return false;WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;verificateButton&quot;, &quot;&quot;, true, &quot;&quot;, &quot;&quot;, false, false))" language="javascript" id="verificateButton" class="button">
+				                            <select name="drpAddressesFound" id="drpAddressesFound" class="reg_title" style="display: none; width: 192px" onchange="SelectAddressChanged(this,event);">
+	</select>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            <div id="verificationImg" style="display:none;">
+                                                <img src="/1.37/BrokerDirectory/Global/Images//loading.gif" align="top">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div id="AddressOnePart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <input name="txtStreetAddress1" type="text" maxlength="200" id="txtStreetAddress1" class="lowlightElement" onblur="blurElement(this);Validate(StreetAddress1Validator, this, event);" onkeypress="return AddressFieldKeyPressed(this, event);" onkeydown="return AddressFieldKeyPressed(this, event);" onfocus="focusedElement(this);">
+                                            <span controltovalidate="txtStreetAddress1" errormessage="Please enter in your street name" display="Dynamic" id="reqStreetName1" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" evaluationfunction="RequiredFieldValidatorEvaluateIsValid" initialvalue="" style="color:Red;display:none;">Please enter in your street name</span>
+                        			        <span id="validateStreet1" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtStreetAddress1" errormessage="Street in not in the correct format" display="Dynamic" clientvalidationfunction="" evaluationfunction="CustomValidatorEvaluateIsValid" style="color:Red;display:none;">Street in not in the correct format</span>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            Street Address 1:
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="AddressTwoPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <input name="txtStreetAddress2" type="text" maxlength="200" id="txtStreetAddress2" class="lowlightElement" onkeypress="return AddressFieldKeyPressed(this, event);" onkeydown="return AddressFieldKeyPressed(this, event);" onfocus="focusedElement(this);" onblur="blurElement(this);">
+                                            <span class="optionalText">Optional</span>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            Street Address 2:
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="CityPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <input name="txtCity" type="text" maxlength="200" id="txtCity" class="lowlightElement" onblur="blurElement(this);Validate(CityValidator, this, event);" onkeypress="return AddressFieldKeyPressed(this, event);" onkeydown="return AddressFieldKeyPressed(this, event);" onfocus="focusedElement(this);">
+		                                    <span id="reqCity" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtCity" errormessage="Please enter in your city/town" display="Dynamic" evaluationfunction="RequiredFieldValidatorEvaluateIsValid" initialvalue="" style="color:Red;display:none;">Please enter in your city/town</span>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            City/Town:
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="CountyPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <input name="txtCounty" type="text" maxlength="200" id="txtCounty" class="lowlightElement" onkeypress="return AddressFieldKeyPressed(this, event);" onkeydown="return AddressFieldKeyPressed(this, event);" onfocus="focusedElement(this);" onblur="blurElement(this);">
+                                            <span class="optionalText">Optional</span>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            County/State:
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="PostCodePart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <input name="txtPostCode" type="text" maxlength="50" id="txtPostCode" class="lowlightElement" onblur="blurElement(this);Validate(PostCodeValidator, this, event);" onkeypress="return AddressFieldKeyPressed(this, event);" onkeydown="return AddressFieldKeyPressed(this, event);" onfocus="focusedElement(this);" style="width:70px;">
+                                            <span id="postCodeOptional" class="optionalText">Optional</span>
+			                                <span id="postCodeValidate" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtPostCode" errormessage="Post code is not in the correct format" display="Dynamic" clientvalidationfunction="" evaluationfunction="CustomValidatorEvaluateIsValid" style="color:Red;display:none;">Post code is not in the correct format</span>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            PostCode/Zip Code:
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="RegistrationEndPartContainer"></div>
+                                <!-- End of address confirmation part -->
+                            </div>
+                        </div>
+
+
+                        <div id="AccountDetailsPanel" class="InactiveRegistrationPart" identification="registrationPart" >
+                            <div class="RegistrationSubHeader">
+                                <h2 id="accountDetailsHeader">Account Details:</h2>
+                            </div>
+                            <div class="RegistrationPartContainer">
+                                 <!-- Beginning of the account details part -->
+
+                                <div id="UserNamePart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <input name="txtUsername" type="text" maxlength="255" id="txtUsername" class="lowlightElement" onkeyup="TryValidUserName(this, event);" onblur="blurElement(this);Validate(UserNameValidator, this, event);" onfocus="focusedElement(this);">
+                                            <input type="button" id="btnUsernameCheck" disabled="" onclick="return Validate(UserNameRequestValidator, document.getElementById('txtUsername'), event);" value="Check availability">
+                                            <span id="btnUsernameCheckImage" style="display:none;">
+                                                <img src="/1.37/BrokerDirectory/Global/Images//loading.gif" align="top">
+                                            </span>
+			                                <span id="reqUsername" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtUsername" errormessage="Please enter in your username" display="Dynamic" evaluationfunction="RequiredFieldValidatorEvaluateIsValid" initialvalue="" style="color:Red;display:none;">Please enter in your username</span>
+			                                <span id="regUsernameLength" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtUsername" errormessage="Your username must be a minimum of 4 characters" display="Dynamic" evaluationfunction="RegularExpressionValidatorEvaluateIsValid" validationexpression="^.{4,}$" style="color:Red;display:none;">Your username must be a minimum of 4 characters</span>
+			                                <span id="regUsername" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtUsername" errormessage="No spaces or symbols can be used" display="Dynamic" evaluationfunction="RegularExpressionValidatorEvaluateIsValid" validationexpression="^[A-Za-z0-9@\._\-]{4,}[A-Za-z0-9@\._\-]*$" style="color:Red;display:none;">No spaces or symbols can be used</span>
+			                                <span id="UsernameValidator" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtUsername" errormessage="The username is not available" display="Dynamic" clientvalidationfunction="" evaluationfunction="CustomValidatorEvaluateIsValid" style="color:Red;display:none;">The username is not available</span>
+			                                <span id="UsernameAvailable" style="display:none;color:#007F0E;padding-left:4px;font-size:10px;">The username is available</span>
+			                                <span id="UsernameNotAvailable" style="display:none;color:Red;padding-left:4px;font-size:10px;">The username is not available</span>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            Username:
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div id="UserNamePart2" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer" style="color:#333333;">
+                                            Min 4 characters
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div id="PasswordPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <input name="txtPassword1" type="password" id="txtPassword1" class="lowlightElement" onblur="blurElement(this);Validate(Password1Validator, this, event);testPassword(this.value);dirtyTheElement(this);" onkeyup="testPassword(this.value, false);" autocomplete="off" onfocus="focusedElement(this);">
+			                                <span id="reqPassword" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtPassword1" errormessage="Please enter in your password" display="Dynamic" evaluationfunction="RequiredFieldValidatorEvaluateIsValid" initialvalue="" style="color:Red;display:none;">Please enter in your password</span>
+			                                <span controltovalidate="txtPassword1" errormessage="Your password and username cannot be the same" display="Dynamic" id="comPasswordUsername" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" evaluationfunction="CompareValidatorEvaluateIsValid" controltocompare="txtUsername" controlhookup="txtUsername" operator="NotEqual" style="color:Red;display:none;">Your password and username cannot be the same</span>
+			                                <span id="regPassword" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtPassword1" errormessage="No spaces or symbols can be used. Your password must be minimum of 6 characters" display="Dynamic" evaluationfunction="RegularExpressionValidatorEvaluateIsValid" validationexpression="^[A-Za-z0-9]+$" style="color:Red;display:none;">No spaces or symbols can be used. Your password must be minimum of 6 characters</span>
+			                                <span id="regPasswordLength" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtPassword1" errormessage="Your password must be a minimum of 6 characters" display="Dynamic" evaluationfunction="RegularExpressionValidatorEvaluateIsValid" validationexpression="^.{6,}$" style="color:Red;display:none;">Your password must be a minimum of 6 characters</span>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div id="divPasswordText" class="RegistrationLeftColumnContainer">Password:</div>
+                                    </div>
+                                </div>
+
+                                <div id="PasswordPart2" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <div id="PasswordValidation" style="position:relative;margin-bottom:5px;">
+                                                <div style="height:13px;width:120px;" class="readOnlyInput">
+                                                    <div id="passwordStrength" style="background:#C6C6C6;background:url(/1.37/BrokerDirectory/Global/Images//pw-strength.jpg);height:13px;width:0;">&nbsp;&nbsp;</div>
+                                                </div>
+                                                <div id="passwordStrengthText" style="left:130px;top:1px;position:absolute;height:13px;z-index:2;font-weight:bold;color:#A1A1A1;">
+                                                    Begin Typing...
+                                                </div>
+                                            </div>
+                                            <span style="color:#333333;">
+                                                Min 6 characters<br>
+                                                Tip: Mix lowercase (a-z), uppercase (A-Z) and numbers (0-9) to make a strong password.
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            Password Strength
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="PasswordConfirmPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <input name="txtPassword2" type="password" id="txtPassword2" class="lowlightElement" onblur="blurElement(this);dirtyTheElement(this);Validate(Password2Validator, this, event);" autocomplete="off" onfocus="focusedElement(this);">
+			                                <span id="reqPassword2" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtPassword2" errormessage="Please confirm your password" display="Dynamic" evaluationfunction="RequiredFieldValidatorEvaluateIsValid" initialvalue="" style="color:Red;display:none;">Please confirm your password</span>
+			                                <span controltovalidate="txtPassword2" errormessage="Your passwords must match" display="Dynamic" id="comPasswords" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" evaluationfunction="CompareValidatorEvaluateIsValid" controltocompare="txtPassword1" controlhookup="txtPassword1" style="color:Red;display:none;">Your passwords must match</span>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div id="divConfirmPasswordText" class="RegistrationLeftColumnContainer">Confirm Password:</div>
+                                    </div>
+                                </div>
+
+                                <div id="SecurityQuestionPart" class="LinePart">
+
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <select name="drpQuestion1" id="drpQuestion1" class="reg_title" onfocus="focusedElement(this);" onblur="blurElement(this);">
+		<option value="PlaceOfbirth">Where were you born?</option>
+		<option selected="selected" value="MothersMaidenName">What was your mother's maiden name?</option>
+		<option value="FirstSchool">What was the first school you attended?</option>
+		<option value="FavouriteColour">What is your favourite colour?</option>
+		<option value="FavouriteHolidayDestination">What is your favourite holiday destination?</option>
+		<option value="AllTimeFavouriteJockey">Who is your all time favourite Jockey?</option>
+		<option value="FavouriteAutomobile">What is your favourite Automobile?</option>
+		<option value="FirstPetsName">What was the name of your first Pet?</option>
+		<option value="AllTimeFavouriteHorse">Who is your all time favourite Horse?</option>
+		<option value="CityOfBirth">What City were you born in?</option>
+
+
+	</select>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            Security Question:
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="SecurityAswerPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <input name="txtAnswer1" type="text" maxlength="200" id="txtAnswer1" class="lowlightElement" onblur="blurElement(this);Validate(AnswerValidator, this, event);" onfocus="focusedElement(this);">
+			                                <span id="reqFirstQuestion" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtAnswer1" errormessage="Please answer your personal question" display="Dynamic" evaluationfunction="RequiredFieldValidatorEvaluateIsValid" initialvalue="" style="color:Red;display:none;">Please answer your personal question</span>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            Answer:
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="BettingCurrencyPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <select name="drpCurrency" id="drpCurrency" class="lowlightElement" onblur="blurElement(this);Validate(CurrencyValidator, this, event);checkDefaultCurrency();" onfocus="focusedElement(this);">
+		<option value="0">Select Currency</option>
+		<option value="SGD">Singapore Dollar</option>
+		<option selected="selected" value="GBP">Pound Sterling</option>
+		<option value="USD">US Dollar</option>
+		<option value="EUR">Euro</option>
+
+	</select>
+			                                <span id="reqCurrency" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="drpCurrency" errormessage="Please select your betting currency" display="Dynamic" evaluationfunction="RequiredFieldValidatorEvaluateIsValid" initialvalue="0" style="color:Red;display:none;">Please select your betting currency</span>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            Betting Currency:
+                                        </div>
+                                    </div>
+                                </div>
+
+								<div id="DepositLimitPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+											<input name="txtDepositLimit" type="text" value="2040" maxlength="200" id="txtDepositLimit" class="lowlightElement" onblur="blurElement(this);Validate(DepositLimitValidator, this, event);" onfocus="focusedElement(this);">
+                                            <select name="drpTimespan" id="drpTimespan" class="lowlightElement" onfocus="focusedElement(this);" onblur="blurElement(this);">
+		<option value="0">Per Day</option>
+		<option value="1">Per Week</option>
+		<option value="2">Per Month</option>
+
+	</select>
+			                                <span id="reqDepositLimit" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtDepositLimit" errormessage="You must enter a deposit limit" display="Dynamic" evaluationfunction="RequiredFieldValidatorEvaluateIsValid" initialvalue="" style="color:Red;display:none;">You must enter a deposit limit</span>
+											<span id="reqDepositLimitRange" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtDepositLimit" errormessage="Deposit limit must be between 1 and 2040" display="Dynamic" evaluationfunction="RangeValidatorEvaluateIsValid" minimumvalue="1" maximumvalue="2040" style="color:Red;display:none;">Deposit limit must be between 1 and 2040</span>
+
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            Deposit Limit:
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="NotDefaultCurrencyPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <span style="display:none;padding-left:0;" id="notDefaultCurrencyText">Please note that you have entered a currency that is not associated to the country you are registering with. Discretionary foreign exchange administrative fees may be applied should you withdraw to a currency that is different to what you registered with.</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="PromotionalCodePart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <input name="txtRefNo" type="text" maxlength="200" id="txtRefNo" class="lowlightElement" onblur="blurElement(this);Validate(PromoValidator, this, event);" onfocus="focusedElement(this);">
+                                            <span class="optionalText">Optional</span>
+                                            <span id="promoValidatorText" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="txtRefNo" errormessage="The promotion code is not valid" display="Dynamic" clientvalidationfunction="" evaluationfunction="CustomValidatorEvaluateIsValid" style="color:Red;display:none;">The promotion code is not valid</span>
+                                        </div>
+                                    </div>
+                                    <div class="RegistrationLeftColumn">
+                                        <div class="RegistrationLeftColumnContainer">
+                                            Promotions Code:
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div id="TaCPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <div class="chbAcceptTermsRadio">
+                                                <input name="chbAcceptTerms" type="checkbox" id="chbAcceptTerms" onclick="Validate(TermsValidator, this, event);" onblur="blurElement(this);Validate(TermsValidator, this, event);" onfocus="focusedElement(this);">
+                                            </div>
+                                            <div class="chbAcceptTermsText">
+                                                <div style="width:480px; height:68px">
+													I can confirm that I am at least 18 years old and that I agree to BETDAQ's <a href="http://betdaqhelp.custhelp.com/app/answers/detail/a_id/649/kw/terms%20and%20conditions" target="_blank">Terms and Conditions</a> and <a href="http://betdaqhelp.custhelp.com/app/answers/detail/a_id/649/kw/PRIVACY%20POLICY%20AND%20COOKIE%20POLICY#PART4" target="_blank">Privacy Policy</a>. I further acknowledge and agree that, in accordance with BETDAQ’s Privacy Policy, BETDAQ may disclose any of my personal information to any applicable governmental, regulatory, sporting or enforcement authority if it is required to do so pursuant to any applicable law.
+												</div><br>
+                                                <span id="reqTerms" class="errortext" onfocus="focusedElement(this);" onblur="blurElement(this);" controltovalidate="chbAcceptTerms" errormessage="Please accept BETDAQ's terms and conditions" display="Dynamic" clientvalidationfunction="" evaluationfunction="CustomValidatorEvaluateIsValid" style="color:Red;display:none;">Please accept BETDAQ's terms and conditions</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="InformMeInfo" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            To change your preferences on receiving details on BETDAQ's free bets, special offers and promotions, please update your Personal Details in the My Account section of the site.
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="SubmitPart" class="LinePart">
+                                    <div class="RegistrationRightColumn">
+                                        <div class="RegistrationRightColumnContainer">
+                                            <input type="submit" name="lnkSubmit" value="Open an Account" onclick="javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;lnkSubmit&quot;, &quot;&quot;, true, &quot;&quot;, &quot;https://www.betdaq.com/Session/Join2.aspx?type=submitReg&quot;, false, false))" language="javascript" id="lnkSubmit" class="bigButton">
+											<input type="button" class="bigButton" id="lnkSubmitProcessing" value="Processing" style="display: none;" disabled="disabled">
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <input type="hidden" name="hfAddressItems" id="hfAddressItems">
+                                <input type="hidden" name="hfCallState" id="hfCallState">
+                                <input name="IovationBlackBox:ioBlackBox" type="hidden" id="IovationBlackBox_ioBlackBox" onfocus="focusedElement(this);" onblur="blurElement(this);" value="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">
+
+
+<input type="submit" id="tempButton" style="display:none;">
+
+
+
+                                <div class="RegistrationEndPartContainer"></div>
+                                <!-- End of account details part -->
+                            </div>
+                        </div>
+
+
+
+
+</div>

@@ -172,7 +172,7 @@ a:hover, a:active, a:focus { /* this group of selectors will give a keyboard nav
   float: left;
   width: 20.5%;
   background-color: #eee;
-  margin-right: 20px; 
+  margin-right: 20px;
 }
 
 /* ~~ This grouped selector gives the lists in the .content area space ~~ */
@@ -390,6 +390,10 @@ font-size: 85%;
 font-weight: 300;
 width: 100%;
 margin-bottom: 20px;
+}
+
+#betplaced{
+  display: none;
 }
 
 

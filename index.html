@@ -5,9 +5,9 @@
 <title>Gaming</title>
 <!--   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" > -->
 <link rel="stylesheet" href="assets/css/app.css" type="text/css">
+<script src='https://dd6zx4ibq538k.cloudfront.net/smartserve-3754.js'></script>
 <script type="text/javascript" src="assets/javascript/jquery.js"></script>
 <script src='SpryAssets/SpryMenuBar.js'></script>
-<script src='https://dd6zx4ibq538k.cloudfront.net/smartserve-3754.js'></script>
 <link href="SpryAssets/SpryMenuBarHorizontal.css" rel="stylesheet" type="text/css" />
 <link href="https://fonts.googleapis.com/css?family=Muli:300,400,600" rel="stylesheet">
 <!--[if lte IE 7]>
@@ -132,7 +132,7 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
 			<div class="stake-details">
 				<h2>Stake</h2>
 				<input type="text" id="stake" name="stake" value=0 required>
-				<button type="button" id="place" value="Place Bet" onclick="place()">Place Bet</button>
+				<button type="button" id="addBetslip" value="Add Betslip" onclick="addBetslip()">Add to Betslip</button>
 				<h2>Potential</h2>
 				<input type="text" id="potential" name="stake" value=0 required readonly></p>
 
@@ -154,6 +154,8 @@ ul.nav a { zoom: 1; }  /* the zoom property gives IE the hasLayout trigger it ne
 				<input type="text" name="stake" id="BSstake" value="" readonly>
 				<p>Total Potential Return:</p>
 				<input type="text" name="potentialReturn" id="BSpotentialReturn" value="" readonly>
+        <button type="button" id="place" value="Place Bet" onclick="place()">Place Bet</button>
+        <p id="betplaced">Your Bet has been placed Good Luck</p>
 				<button type="button" value="home" onclick="document.location.reload(true)">Place another Bet</button>
 			</div>
 		</div>
@@ -205,11 +207,15 @@ function addFunds(){
   sendQPFunds(funds, userId);
   document.location.reload(true)
 }
-function place(){
+function addBetslip(){
   $('#betslip').css('display', 'block');
+  sendegBetSlipItem()
+}
+function place(){
   balance = parseFloat($('#userFunds').val())
+  $('#betplaced').css('display', 'block');
   localStorage.setItem("balance", balance)
-  sendegBetSlipItem_egBetslipSummary_egBetslipTransactionSummary()
+  sendegBetslipSummary_egBetslipTransactionSummary()
 }
 
 function logout(){
@@ -322,10 +328,7 @@ egUser = {
 								"value": balance,
 								"currency": "GBP"
 							},
-							"email": "jonatan@qubit.com",
-							"firstLogin": false,
-  						"type": "registration",
-              "name": "registration"
+							"email": "jonatan@qubit.com"
 						}
 					}
 			 if (window.uv && window.uv.emit) {
@@ -452,7 +455,7 @@ egUser = {
 
 			}
 
-			function sendegBetSlipItem_egBetslipSummary_egBetslipTransactionSummary () {
+			function sendegBetslipSummary_egBetslipTransactionSummary () {
 
 				betSport = $('input[name=selection]:checked').val()
 				betStake = parseFloat($('#stake').val())
@@ -476,79 +479,6 @@ egUser = {
         localStorage.setItem("balance", balance)
 				$('#userFunds').val(balance)
 
-
-
-				egBetslipItem = {
-					"betslip": {
-							"id": betIdApp,
-							"totalStake": {
-									"value": betStake,
-									"currency": "GBP"
-							},
-							"quantity": 1,
-							"totalPotential": {
-									"value": betPotential,
-									"currency": "GBP"
-							},
-							"subtotal": {
-									"value": betStake,
-									"currency": "GBP"
-							},
-							"tax": {
-								"value": 0,
-								"currency": "GBP"
-							},
-							"total": {
-									"value": betStake,
-									"currency": "GBP"
-							},
-							"subtotalIncludingTax": {
-									"value": betStake,
-									"currency": "GBP"
-							}
-					},
-					 "bet": {
-							 "betId": betIdApp,
-							 "price": {
-									 "value": betStake,
-									 "currency": "GBP"
-							 },
-							 "potentialReturn": {
-									 "value": betPotential,
-									 "currency": "GBP"
-							 },
-							 "odds": betOddDecimal,
-							 "startTime": timestamp,
-							 "multiBet": false,
-							 "receiptId": betIdApp,
-							 "betType": "Single",
-							 "inplay": false,
-							 "sport": betSport,
-							 "competition": betCompetition,
-							 "eventName": betEvent,
-							 "eventId": betEventId,
-							 "selection": betSelection,
-							 "selectionId": betSelection,
-							 "marketName": "Win-Draw-Win",
-							 "marketId": "12345",
-							 "originalPrice": {
-									 "value": betPotential,
-									 "currency": "GBP"
-							 }
-					 },
-					 "subtotal": {
-							 "value": betPotential,
-							 "currency": "GBP"
-					 },
-					 "subtotalIncludingTax": {
-							 "value": betPotential,
-							 "currency": "GBP"
-					 }
-				 }
-
-				 if (window.uv && window.uv.emit) {
-						window.uv.emit('egBetslipItem', egBetslipItem);
-				 }
 				 if (window.uv && window.uv.emit) {
 						window.uv.emit('egBetslipSummary',{
 							"betslip": {
@@ -734,6 +664,99 @@ egUser = {
 						});
 				}
 		}
+    function sendegBetSlipItem () {
+
+      betSport = $('input[name=selection]:checked').val()
+      betStake = parseFloat($('#stake').val())
+      betOddDecimal = parseFloat($('input[name=bet]:checked', '#football-bets').val())
+      betPotential = Math.round(((betOddDecimal * betStake) + betStake)*100)/100
+      selectionIdR = $('input[name=bet]:checked').attr('id')
+      var betArrayB = getValues (selectionIdR)
+      var betEvent = betArray['betEvent']
+      var betEventId = betArray['betEventId']
+      var betSelection = betArray['betSelection']
+      var betIdApp = betEventId + betStake.toString() + betPotential.toString() + timestamp
+
+
+      $('#BScompetition').val(betCompetition)
+      $('#BSevent').val(betEvent)
+      $('#BSodd').val(betOddDecimal)
+      $('#BSpotentialReturn').val(betPotential)
+      $('#BSselection').val(betSelection)
+      $('#BSstake').val(betStake)
+
+      egBetslipItem = {
+        "betslip": {
+            "id": betIdApp,
+            "totalStake": {
+                "value": betStake,
+                "currency": "GBP"
+            },
+            "quantity": 1,
+            "totalPotential": {
+                "value": betPotential,
+                "currency": "GBP"
+            },
+            "subtotal": {
+                "value": betStake,
+                "currency": "GBP"
+            },
+            "tax": {
+              "value": 0,
+              "currency": "GBP"
+            },
+            "total": {
+                "value": betStake,
+                "currency": "GBP"
+            },
+            "subtotalIncludingTax": {
+                "value": betStake,
+                "currency": "GBP"
+            }
+        },
+         "bet": {
+             "betId": betIdApp,
+             "price": {
+                 "value": betStake,
+                 "currency": "GBP"
+             },
+             "potentialReturn": {
+                 "value": betPotential,
+                 "currency": "GBP"
+             },
+             "odds": betOddDecimal,
+             "startTime": timestamp,
+             "multiBet": false,
+             "receiptId": betIdApp,
+             "betType": "Single",
+             "inplay": false,
+             "sport": betSport,
+             "competition": betCompetition,
+             "eventName": betEvent,
+             "eventId": betEventId,
+             "selection": betSelection,
+             "selectionId": betSelection,
+             "marketName": "Win-Draw-Win",
+             "marketId": "12345",
+             "originalPrice": {
+                 "value": betPotential,
+                 "currency": "GBP"
+             }
+         },
+         "subtotal": {
+             "value": betPotential,
+             "currency": "GBP"
+         },
+         "subtotalIncludingTax": {
+             "value": betPotential,
+             "currency": "GBP"
+         }
+       }
+
+       if (window.uv && window.uv.emit) {
+          window.uv.emit('egBetslipItem', egBetslipItem);
+       }
+  }
 
 function getValues (selectionIdR) {
 if (selectionIdR != null){
